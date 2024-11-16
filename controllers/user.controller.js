@@ -41,7 +41,11 @@ exports.loginController = async (req, res) => {
     if (!checkPassword) throw new Error("Wrong password");
 
     // genrate token
-    const token = jwt.sign({ userID: user._id,role:user.role }, process.env.SECRET_KEY);
+    const token = jwt.sign(
+      { userID: user._id, role: user.role },
+      process.env.SECRET_KEY,
+      { expiresIn: 600 }
+    );
 
     delete user.password; //issue not removing pass
     res.status(200).send({ message: "User logged-in", token, user });

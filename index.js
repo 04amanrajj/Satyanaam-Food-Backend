@@ -2,11 +2,13 @@ const express = require("express");
 const { dbconnection } = require("./configs/db");
 const { userRoute } = require("./routes/user.routes");
 const { menuRoutes } = require("./routes/menu.routes");
+const { authenticate } = require("./middlewares/authorization.middleware");
 const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 4500;
 
 app.use("/user", userRoute);
+app.use(authenticate);
 app.use("/menu", menuRoutes);
 
 app.get("/", (req, res) => {
