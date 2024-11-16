@@ -8,4 +8,4 @@ const menuSchema = mongoose.Schema({
   image: { type: String, required: true },
 });
 
-exports.MenuModel = mongoose.model("menu-item", menuSchema);
+exports.MenuModel = mongoose.model("menu_item", menuSchema);

@@ -41,13 +41,13 @@ exports.loginController = async (req, res) => {
     if (!checkPassword) throw new Error("Wrong password");
 
     // genrate token
-    const token = jwt.sign({ userID: user._id }, process.env.SECRET_KEY);
+    const token = jwt.sign({ userID: user._id,role:user.role }, process.env.SECRET_KEY);
 
     delete user.password; //issue not removing pass
     res.status(200).send({ message: "User logged-in", token, user });
   } catch (error) {
     console.log({ error: error.message });
-    res.status(400).send({ error: error.message });
+    res.status(400).send({ message: error.message });
   }
 };
 exports.logoutController = async (req, res) => {
