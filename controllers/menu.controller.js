@@ -2,7 +2,7 @@ const { MenuModel } = require("../models/menu.model");
 
 exports.resetController = async (req, res) => {
   try {
-    if (req.headers.role !== "admin") throw new Error("You are not authorized");
+    if (req.role !== "admin") throw new Error("You are not authorized");
 
     // create backup
 
@@ -28,13 +28,24 @@ exports.resetController = async (req, res) => {
 
 exports.getItemsControllers = async (req, res) => {
   try {
-    const { page = 1, limit = 10, category, minprice, maxprice } = req.query;
-
+    const {
+      page = 1,
+      limit = 10,
+      category,
+      minprice,
+      maxprice,
+      q,
+    } = req.query;
     let filter = {};
 
     if (category) filter.category = category;
     if (minprice) filter.price = { ...filter.price, $gte: minprice };
     if (maxprice) filter.price = { ...filter.price, $lte: maxprice };
+
+    if (q) {
+      const searchRegex = new RegExp(q, "i");
+      filter.$or = [{ name: searchRegex }, { description: searchRegex }];
+    }
 
     const menuitems = await MenuModel.find(filter)
       .skip((page - 1) * limit)
@@ -57,9 +68,10 @@ exports.getItemsControllers = async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 };
+
 exports.newItemController = async (req, res) => {
   try {
-    if (req.headers.role !== "admin") throw new Error("You are not authorized");
+    if (req.role !== "admin") throw new Error("You are not authorized");
     const payLoad = req.body;
 
     // check item
@@ -75,9 +87,10 @@ exports.newItemController = async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 };
+
 exports.updateController = async (req, res) => {
   try {
-    if (req.headers.role !== "admin") throw new Error("You are not authorized");
+    if (req.role !== "admin") throw new Error("You are not authorized");
     const _id = req.params.id;
     const payload = req.body;
 
@@ -96,7 +109,7 @@ exports.updateController = async (req, res) => {
 
 exports.deleteController = async (req, res) => {
   try {
-    if (req.headers.role !== "admin") throw new Error("You are not authorized");
+    if (req.role !== "admin") throw new Error("You are not authorized");
     const _id = req.params.id;
 
     // check item
