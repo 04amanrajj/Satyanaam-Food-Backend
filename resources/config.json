@@ -1,0 +1,44 @@
+{
+    "restaurantDetails": {
+        "name": "SatyaNaam Food Center",
+        "tagline": "Experience the Authentic Taste of Tradition",
+        "address": {
+            "line1": "123 Heritage Street",
+            "city": "Udaipur",
+            "state": "Rajasthan",
+            "zipcode": "313001"
+        },
+        "contact": {
+            "phone": "+91-9876543210",
+            "email": "contact@satyanaamrasoi.com"
+        },
+        "features": {
+            "pureVeg": true,
+            "authenticTaste": "100%",
+            "homeDeliveryAvailable": true
+        },
+        "operatingHours": {
+            "mondayToFriday": "10:00 AM - 10:00 PM",
+            "weekends": "10:00 AM - 11:00 PM"
+        },
+        "socialMedia": {
+            "facebook": "https://facebook.com/satyanaamrasoi",
+            "instagram": "https://instagram.com/satyanaamrasoi"
+        }
+    },
+    "menuCategories": [
+        "Salad",
+        "Papad",
+        "Fast_Food",
+        "Rajasthani_Special",
+        "Paneer_Ka_Swad",
+        "Dal_Tadka",
+        "Sabzio_Ka_Khazana",
+        "Veg_and_Kofta",
+        "Gujarati",
+        "Garam_Garam_Tawa_Se",
+        "Rice",
+        "Dahi_And_Raita",
+        "Thali"
+    ]
+}
