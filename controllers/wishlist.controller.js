@@ -21,9 +21,8 @@ exports.newWishController = async (req, res) => {
     const userID = req.userID;
 
     // check for duplicate items
-    const user = await UserModel.findOne({ wishlist: itemID });
+    const user = await UserModel.findOne({ userID,wishlist: itemID });
     if (user) throw new Error("item already in wishlist");
-
     // add item to user wishlist
     await UserModel.findOneAndUpdate(
       { _id: userID },
