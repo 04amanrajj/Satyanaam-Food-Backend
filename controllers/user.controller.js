@@ -44,7 +44,7 @@ exports.loginController = async (req, res) => {
     const token = jwt.sign(
       { userID: user._id, role: user.role },
       process.env.SECRET_KEY,
-      { expiresIn: 600 }
+      { expiresIn: 6000 }
     );
 
     delete user.password; //issue not removing pass

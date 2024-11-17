@@ -3,6 +3,7 @@ const { dbconnection } = require("./configs/db");
 const { userRoute } = require("./routes/user.routes");
 const { menuRoutes } = require("./routes/menu.routes");
 const { authenticate } = require("./middlewares/authorization.middleware");
+const { wishlistRoute } = require("./routes/wishlist.routes");
 const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 4500;
@@ -10,6 +11,7 @@ const port = process.env.PORT || 4500;
 app.use("/user", userRoute);
 app.use(authenticate);
 app.use("/menu", menuRoutes);
+app.use("/wishlist", wishlistRoute);
 
 app.get("/", (req, res) => {
   res.status(200).send("homepage");
