@@ -17,7 +17,7 @@ exports.wishlistController = async (req, res) => {
 
 exports.newWishController = async (req, res) => {
   try {
-    const itemID = req.headers.itemid;
+    const itemID = req.body.itemid;
     const userID = req.userID;
 
     // check for duplicate items
