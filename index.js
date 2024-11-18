@@ -6,28 +6,34 @@ const { authenticate } = require("./middlewares/authorization.middleware");
 const { wishlistRoute } = require("./routes/wishlist.routes");
 const { cartRoute } = require("./routes/cart.routes");
 const { orderRoute } = require("./routes/order.routes");
-const app = express();
+const { defaultRoute } = require("./routes/default.routes");
+const { checkBlacklist } = require("./middlewares/checkBlacklist.middleware");
 require("dotenv").config();
+
+const app = express();
 const port = process.env.PORT || 4500;
 
+// public routes
+app.use("/", defaultRoute);
 app.use("/user", userRoute);
-app.use(authenticate);
+
+// partially protected routes
 app.use("/menu", menuRoutes);
+
+// protected routes
+app.use(authenticate);
+app.use(checkBlacklist);
 app.use("/wishlist", wishlistRoute);
 app.use("/cart", cartRoute);
 app.use("/order", orderRoute);
 
-app.get("/", (req, res) => {
-  res.status(200).send("homepage");
-});
-
+// server initialization
 app.listen(port, async () => {
   try {
     await dbconnection;
     console.log("connected to DB");
   } catch (error) {
-    console.log("failed to connect DB");
-    console.log({ error: error.message });
+    console.log("failed to connect DB:", error.message);
   }
   console.log(`server running at http://localhost:${port}`);
 });
