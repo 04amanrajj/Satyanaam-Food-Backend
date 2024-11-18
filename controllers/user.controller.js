@@ -3,7 +3,7 @@ const { BlackListToken } = require("../models/blacklistTokens.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
-exports.registerController = async (req, res) => {
+exports.registerNewUser = async (req, res) => {
   try {
     const payLoad = req.body;
 
@@ -26,15 +26,13 @@ exports.registerController = async (req, res) => {
   }
 };
 
-exports.loginController = async (req, res) => {
+exports.loginUser = async (req, res) => {
   try {
     const payLoad = req.body;
 
     // check for existing user
-    const user = await UserModel.findOne({ email: payLoad.email });
-    if (!user) {
-      throw new Error("User not found with this Email");
-    }
+    const user = await UserModel.findOne({ email: payLoad.email }).lean(); //lean return js plain obj
+    if (!user) throw new Error("User not found with this Email");
 
     // check pass
     const checkPassword = await bcrypt.compare(payLoad.password, user.password);
@@ -44,38 +42,31 @@ exports.loginController = async (req, res) => {
     const token = jwt.sign(
       { userID: user._id, role: user.role },
       process.env.SECRET_KEY,
-      { expiresIn: 6000 }
+      { expiresIn: process.env.JWT_EXPIRES_IN || "1h" }
     );
-
     delete user.password; //issue not removing pass
     res.status(200).send({ message: "User logged-in", token, user });
   } catch (error) {
     console.log({ error: error.message });
-    res.status(400).send({ message: error.message });
+    res.status(401).send({ message: error.message });
   }
 };
-exports.logoutController = async (req, res) => {
+exports.logoutUser = async (req, res) => {
   try {
     const token = req.headers.authorization;
 
-    if (!token) throw new Error("provide token in headers");
+    if (!token) throw new Error("provide token in request headers");
 
-    const blackListed_Data = JSON.parse(
-      fs.readFileSync("./blacklisted.json", "utf-8")
-    );
     // check if token exist in list
-    if (blackListed_Data.includes(token)) {
-      return res.status(400).send({ message: "user is already logged out" });
-    }
+    const blackListed_Data = await BlackListToken.findOne({ token });
+    if (blackListed_Data) throw new Error("user is already logged out");
 
     // save token to mongoDB
-    const newToken = new BlackListToken({ token });
-    await newToken.save();
-    blackListed_Data.push(token);
-    fs.writeFileSync("./blacklisted.json", JSON.stringify(blackListed_Data));
+    await new BlackListToken({ token }).save();
+
     res.status(200).send({ message: "user logged out" });
   } catch (error) {
     console.log({ error: error.message });
-    res.status(500).send({ message: error.message });
+    res.status(401).send({ message: error.message });
   }
 };
