@@ -1,19 +1,20 @@
 const express = require("express");
 const Router = require("express");
-
-const {
-  registerController,
-  loginController,
-  logoutController,
-} = require("../controllers/user.controller");
+const { limiter } = require("../middlewares/rateLimit.middleware");
 const userRoute = Router();
+const {
+  registerNewUser,
+  loginUser,
+  logoutUser,
+} = require("../controllers/user.controller");
 require("dotenv").config();
 
 userRoute.use(express.json());
+userRoute.use(limiter);
 
-userRoute.post("/register", registerController);
+userRoute.post("/register", registerNewUser);
 
-userRoute.post("/login", loginController);
+userRoute.post("/login", loginUser);
 
-userRoute.get("/logout", logoutController);
+userRoute.get("/logout", logoutUser);
 module.exports = { userRoute };
