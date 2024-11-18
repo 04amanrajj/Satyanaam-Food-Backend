@@ -1,5 +1,6 @@
 const { MenuModel } = require("../models/menu.model");
 const { CartModel } = require("../models/cart.model");
+const { UserModel } = require("../models/user.model");
 
 exports.getFromCart = async (req, res) => {
   try {
@@ -48,6 +49,12 @@ exports.addToCart = async (req, res) => {
         $inc: { totalprice: totalprice },
       },
       { upsert: true }
+    );
+
+    // pull/remove item to user wishlist
+    await UserModel.findOneAndUpdate(
+      { _id: userID },
+      { $pull: { wishlist: itemid } }
     );
 
     res.status(200).send({ message: "item added to cart" });
