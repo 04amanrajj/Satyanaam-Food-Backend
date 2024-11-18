@@ -41,8 +41,11 @@ exports.newOrder = async (req, res) => {
       status,
     });
     await order.save();
-    console.log(order, cart);
-    res.status(200).send("Ok");
+
+    // remove cart
+    await CartModel.findOneAndDelete({ _id: cartID });
+    
+    res.status(200).send({ data: order, cart });
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });
