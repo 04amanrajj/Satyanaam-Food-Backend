@@ -42,7 +42,7 @@ exports.loginUser = async (req, res) => {
     const token = jwt.sign(
       { userID: user._id, role: user.role },
       process.env.SECRET_KEY,
-      { expiresIn: process.env.JWT_EXPIRES_IN || "1h" }
+      { expiresIn: Number(process.env.JWT_EXPIRES_IN) || "1h" }
     );
     delete user.password; //issue not removing pass
     res.status(200).send({ message: "User logged-in", token, user });
