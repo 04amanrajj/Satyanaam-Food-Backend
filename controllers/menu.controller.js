@@ -1,6 +1,6 @@
 const { MenuModel } = require("../models/menu.model");
 
-exports.resetController = async (req, res) => {
+exports.resetMenu = async (req, res) => {
   try {
     if (req.role !== "admin") throw new Error("You are not authorized");
 
@@ -26,16 +26,9 @@ exports.resetController = async (req, res) => {
   }
 };
 
-exports.getItemsControllers = async (req, res) => {
+exports.getMenuItem = async (req, res) => {
   try {
-    const {
-      page = 1,
-      limit = 10,
-      category,
-      minprice,
-      maxprice,
-      q,
-    } = req.query;
+    const { page = 1, limit = 10, category, minprice, maxprice, q } = req.query;
     let filter = {};
 
     if (category) filter.category = category;
@@ -69,7 +62,7 @@ exports.getItemsControllers = async (req, res) => {
   }
 };
 
-exports.newItemController = async (req, res) => {
+exports.addMenuItem = async (req, res) => {
   try {
     if (req.role !== "admin") throw new Error("You are not authorized");
     const payLoad = req.body;
@@ -88,7 +81,7 @@ exports.newItemController = async (req, res) => {
   }
 };
 
-exports.updateController = async (req, res) => {
+exports.updateMenuItem = async (req, res) => {
   try {
     if (req.role !== "admin") throw new Error("You are not authorized");
     const _id = req.params.id;
@@ -107,7 +100,7 @@ exports.updateController = async (req, res) => {
   }
 };
 
-exports.deleteController = async (req, res) => {
+exports.deleteMenuItem = async (req, res) => {
   try {
     if (req.role !== "admin") throw new Error("You are not authorized");
     const _id = req.params.id;

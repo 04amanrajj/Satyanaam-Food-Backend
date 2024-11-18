@@ -1,28 +1,32 @@
 const express = require("express");
 const Router = require("express");
 const {
-  resetController,
-  getItemsControllers,
-  deleteController,
-  updateController,
-  newItemController,
+  resetMenu,
+  getMenuItem,
+  deleteMenuItem,
+  updateMenuItem,
+  addMenuItem,
 } = require("../controllers/menu.controller");
+const { authenticate } = require("../middlewares/authorization.middleware");
+const { BlackListToken } = require("../models/blacklistTokens.model");
 
 const menuRoutes = Router();
 menuRoutes.use(express.json());
 
-// reset items
-menuRoutes.post("/reset", resetController);
-
 // get items
-menuRoutes.get("/", getItemsControllers);
+menuRoutes.get("/", getMenuItem);
+
+menuRoutes.use(authenticate);
+menuRoutes.use(BlackListToken);
+// reset items
+menuRoutes.post("/reset", resetMenu);
 
 // add items
-menuRoutes.post("/", newItemController);
+menuRoutes.post("/", addMenuItem);
 
 // update item
-menuRoutes.patch("/:id", updateController);
+menuRoutes.patch("/:id", updateMenuItem);
 
 // delete item
-menuRoutes.delete("/:id", deleteController);
+menuRoutes.delete("/:id", deleteMenuItem);
 module.exports = { menuRoutes };
