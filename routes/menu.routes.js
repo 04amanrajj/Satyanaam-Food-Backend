@@ -8,25 +8,21 @@ const {
   addMenuItem,
 } = require("../controllers/menu.controller");
 const { authenticate } = require("../middlewares/authorization.middleware");
-const { BlackListToken } = require("../models/blacklistTokens.model");
+const { checkBlacklist } = require("../middlewares/checkBlacklist.middleware");
 
 const menuRoutes = Router();
-menuRoutes.use(express.json());
 
-// get items
+// public route
 menuRoutes.get("/", getMenuItem);
 
+// middleware for protected routes
 menuRoutes.use(authenticate);
-menuRoutes.use(BlackListToken);
-// reset items
-menuRoutes.post("/reset", resetMenu);
+menuRoutes.use(checkBlacklist);
 
-// add items
-menuRoutes.post("/", addMenuItem);
+// admin-only routes
+menuRoutes.post("/reset", resetMenu); // reset menu
+menuRoutes.post("/", addMenuItem); // add a menu item
+menuRoutes.put("/:id", updateMenuItem); // update a menu item
+menuRoutes.delete("/:id", deleteMenuItem); // delete a menu item
 
-// update item
-menuRoutes.put("/:id", updateMenuItem);
-
-// delete item
-menuRoutes.delete("/:id", deleteMenuItem);
 module.exports = { menuRoutes };
