@@ -8,9 +8,11 @@ const { cartRoute } = require("./routes/cart.routes");
 const { orderRoute } = require("./routes/order.routes");
 const { defaultRoute } = require("./routes/default.routes");
 const { checkBlacklist } = require("./middlewares/checkBlacklist.middleware");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+app.use(cors());
 const port = process.env.PORT || 4500;
 
 // public routes
