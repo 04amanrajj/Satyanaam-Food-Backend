@@ -52,7 +52,7 @@ exports.getMenuItem = async (req, res) => {
     res.status(200).send({
       data: menuitems,
       extra: {
-        currentPage: page,
+        currentPage: +page,
         totalPages,
         totalitems,
         itemsPerPage: limit,
