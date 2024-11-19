@@ -11,7 +11,10 @@ exports.getOrder = async (req, res) => {
 
     console.log(filter);
     const order = await OrderModel.find(filter);
-    if (!order[0]) throw new Error("No orders found from this user");
+    if (order.length == 0)
+      return res
+        .status(404)
+        .send({ message: "No orders found from this user" });
 
     res.status(200).send(order);
   } catch (error) {
@@ -27,12 +30,17 @@ exports.newOrder = async (req, res) => {
     const userID = req.userID;
 
     const cart = await CartModel.findOne({ userID, _id: cartID });
-    if (!cart) throw new Error("Cart not found");
+    if (!cart) return res.status(404).send({ message: "Cart not found" });
 
     // check for existing order with this userID
-    const existingOrder = await OrderModel.findOne({ userID });
+    const existingOrder = await OrderModel.findOne({
+      userID,
+      status: "pending",
+    });
     if (existingOrder)
-      throw new Error("there's a pending order from this user");
+      return res
+        .status(409)
+        .send({ message: "there's a pending order from this user" });
 
     const order = new OrderModel({
       userID,
@@ -44,7 +52,7 @@ exports.newOrder = async (req, res) => {
 
     // remove cart
     await CartModel.findOneAndDelete({ _id: cartID });
-    
+
     res.status(200).send({ data: order, cart });
   } catch (error) {
     console.log(error.message);
@@ -55,19 +63,20 @@ exports.newOrder = async (req, res) => {
 exports.updateOrder = async (req, res) => {
   try {
     const role = req.role;
-    if (role !== "admin") throw new Error("You are unauthorized");
+    if (role !== "admin")
+      return res.status(403).send({ message: "You are not authorized" });
 
     const orderID = req.params.id;
     const { status } = req.body;
     // check for valid orders
     const order = await OrderModel.findOne({ _id: orderID });
-    if (!order) throw new Error("Order not found");
+    if (!order) return res.status(404).send({ message: "Order not found" });
 
-    await OrderModel.findOneAndUpdate({ status });
+    await OrderModel.findOneAndUpdate({ _id: orderID }, { status });
 
     res.status(200).send("order updated");
   } catch (error) {
     console.log(error.message);
-    res.status(400).send({ message: error.message });
+    res.status(500).send({ message: error.message });
   }
 };

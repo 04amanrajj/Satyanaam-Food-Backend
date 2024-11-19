@@ -2,9 +2,11 @@ const { MenuModel } = require("../models/menu.model");
 
 exports.resetMenu = async (req, res) => {
   try {
-    if (req.role !== "admin") throw new Error("You are not authorized");
+    if (req.role !== "admin")
+      return res.status(403).send({ message: "You are not authorized" });
 
     // create backup
+    // pending...
 
     // reset all items
     await MenuModel.collection.drop();
@@ -12,12 +14,12 @@ exports.resetMenu = async (req, res) => {
     const menuEntries = Object.keys(menuItems).map((category) => ({
       items: menuItems[category],
     }));
-    menuEntries.forEach((element) => {
-      element.items.forEach(async (ele) => {
+    for (const element of menuEntries) {
+      for (const ele of element.items) {
         const item = new MenuModel(ele);
         await item.save();
-      });
-    });
+      }
+    }
     const newItems = await MenuModel.find();
     res.status(200).send({ message: "menu reset: ok", data: newItems });
   } catch (error) {
@@ -64,12 +66,14 @@ exports.getMenuItem = async (req, res) => {
 
 exports.addMenuItem = async (req, res) => {
   try {
-    if (req.role !== "admin") throw new Error("You are not authorized");
+    if (req.role !== "admin")
+      return res.status(403).send({ message: "You are not authorized" });
     const payLoad = req.body;
 
     // check item
     const dish = await MenuModel.findOne({ name: payLoad.name });
-    if (dish) throw new Error("dish exists with this name");
+    if (dish)
+      return res.status(409).send({ message: "dish exists with this name" });
 
     const newDish = new MenuModel(payLoad);
     await newDish.save();
@@ -83,37 +87,37 @@ exports.addMenuItem = async (req, res) => {
 
 exports.updateMenuItem = async (req, res) => {
   try {
-    if (req.role !== "admin") throw new Error("You are not authorized");
+    if (req.role !== "admin")
+      return res.status(403).send({ message: "You are not authorized" });
     const _id = req.params.id;
     const payload = req.body;
 
     // check item
     const dish = await MenuModel.findOne({ _id });
-    if (!dish) throw new Error("dish not found");
+    if (!dish) return res.status(404).send({ message: "dish not found" });
 
     await MenuModel.findOneAndUpdate({ _id }, payload);
 
     res.status(200).send({ message: "dish updated" });
   } catch (error) {
     console.log(error.message);
-    res.status(404).send({ message: error.message });
+    res.status(500).send({ message: error.message });
   }
 };
 
 exports.deleteMenuItem = async (req, res) => {
   try {
-    if (req.role !== "admin") throw new Error("You are not authorized");
+    if (req.role !== "admin")
+      return res.status(403).send({ message: "You are not authorized" });
     const _id = req.params.id;
 
-    // check item
-    const dish = await MenuModel.findOne({ _id });
-    if (!dish) throw new Error("dish not found");
-
-    await MenuModel.findOneAndDelete({ _id });
+    // check & delete item
+    const dish = await MenuModel.findByIdAndDelete({ _id });
+    if (!dish) return res.status(404).send({ message: "dish not found" });
 
     res.status(200).send({ message: "dish deleted" });
   } catch (error) {
     console.log(error.message);
-    res.status(404).send({ message: error.message });
+    res.status(500).send({ message: error.message });
   }
 };

@@ -16,6 +16,11 @@ exports.authenticate = (req, res, next) => {
     req.role = decoded.role;
     next();
   } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      return res
+        .status(401)
+        .send({ message: "Token expired. Please log in again." });
+    }
     console.log({ error: error.message });
     res.status(500).send({ message: error.message });
   }

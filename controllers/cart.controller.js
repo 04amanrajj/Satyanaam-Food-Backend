@@ -7,13 +7,11 @@ exports.getFromCart = async (req, res) => {
     const userID = req.userID;
     // find cart
     const cart = await CartModel.findOne({ userID });
-    if (!cart) throw new Error("Cart not found");
+    if (!cart) return res.status(404).send({ message: "Cart not found" });
 
     // find items
-    let items = [];
-    for (const element of cart.items) {
-      items.push(await MenuModel.findOne({ _id: element.itemid }));
-    }
+    const itemIds = cart.items.map((element) => element.itemid);
+    const items = await MenuModel.find({ _id: { $in: itemIds } });
 
     res.status(200).send({ data: cart, items });
   } catch (error) {
@@ -31,7 +29,7 @@ exports.addToCart = async (req, res) => {
       return res.status(400).send({ message: "Invalid itemid or quantity" });
     }
     const item = await MenuModel.findOne({ _id: itemid });
-    if (!item) throw new Error("Item not found");
+    if (!item) return res.status(404).send({ message: "Item not found" });
 
     const totalprice = item.price * quantity;
 
@@ -39,7 +37,7 @@ exports.addToCart = async (req, res) => {
     const itemExists = await CartModel.findOne({ userID });
     if (itemExists)
       if (itemExists.items.some((item) => item.itemid == itemid))
-        throw new Error("item already in cart");
+        return res.status(400).send({ message: "item already in cart" });
 
     // add/update item to cart
     const cart = await CartModel.findOneAndUpdate(
@@ -77,15 +75,16 @@ exports.updateCartItem = async (req, res) => {
     }
     // Validate the menu item
     const item = await MenuModel.findOne({ _id: itemid });
-    if (!item) throw new Error("Item not found");
+    if (!item) return res.status(404).send({ message: "Item not found" });
 
     // Find the cart
     const cart = await CartModel.findOne({ userID });
-    if (!cart) throw new Error("Cart not found");
+    if (!cart) return res.status(404).send({ message: "Cart not found" });
 
     // find and update quantity
     const currentItem = cart.items.find((i) => i.itemid == itemid);
-    if (!currentItem) throw new Error("Item not found in cart");
+    if (!currentItem)
+      return res.status(404).send({ message: "Item not found in cart" });
 
     const quantityDiffrance = quantity - currentItem.quantity;
     const priceDiffrance = item.price * quantityDiffrance;
@@ -113,11 +112,12 @@ exports.deleteCartItem = async (req, res) => {
 
     // Find the cart
     const cart = await CartModel.findOne({ userID });
-    if (!cart) throw new Error("Cart not found");
+    if (!cart) return res.status(404).send({ message: "Cart not found" });
 
     // find item to remove
     const itemToRemove = cart.items.find((i) => i.itemid == itemid);
-    if (!itemToRemove) throw new Error("Item not found in cart");
+    if (!itemToRemove)
+      return res.status(404).send({ message: "Item not found in cart" });
 
     // find item price
     const item = await MenuModel.findOne({ itemid: itemToRemove.itemid });
@@ -131,7 +131,9 @@ exports.deleteCartItem = async (req, res) => {
       }
     );
     if (!updateCart) throw new Error("failed to remove item from cart");
-    res.status(200).send({ message: "item removed from cart" });
+    res
+      .status(200)
+      .send({ data: updateCart, message: "item removed from cart" });
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });
