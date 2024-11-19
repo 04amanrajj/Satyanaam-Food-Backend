@@ -2,7 +2,6 @@ const { UserModel } = require("../models/user.model");
 const { BlackListToken } = require("../models/blacklistTokens.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const fs = require("fs");
 exports.registerNewUser = async (req, res) => {
   try {
     const payLoad = req.body;
