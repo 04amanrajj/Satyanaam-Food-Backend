@@ -21,7 +21,10 @@ exports.newWishController = async (req, res) => {
     const itemID = req.body.itemid;
     const userID = req.userID;
 
-    // check for duplicate items
+    // check for item & duplicate items
+    const item = await MenuModel.findOne({ _id: itemID });
+    if (!item) return res.status(404).send({ message: "Item not found" });
+
     const user = await UserModel.findOne({ _id: userID });
     if (user.wishlist.includes(itemID)) {
       return res.status(400).send({ message: "Item already in wishlist" });
