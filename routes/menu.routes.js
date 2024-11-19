@@ -25,7 +25,7 @@ menuRoutes.post("/reset", resetMenu);
 menuRoutes.post("/", addMenuItem);
 
 // update item
-menuRoutes.patch("/:id", updateMenuItem);
+menuRoutes.put("/:id", updateMenuItem);
 
 // delete item
 menuRoutes.delete("/:id", deleteMenuItem);
