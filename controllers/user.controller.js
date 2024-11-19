@@ -2,6 +2,20 @@ const { UserModel } = require("../models/user.model");
 const { BlackListToken } = require("../models/blacklistTokens.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
+exports.userInfo = async (req, res) => {
+  try {
+    const userID = req.userID;
+    console.log(userID);
+    const user = await UserModel.findById(userID);
+    if (!user) return res.status(409).send({ message: "Please login first" });
+    res.status(200).send({ message: user });
+  } catch (error) {
+    console.log({ error: error.message });
+    res.status(500).send({ error: error.message });
+  }
+};
+
 exports.registerNewUser = async (req, res) => {
   try {
     const payLoad = req.body;
