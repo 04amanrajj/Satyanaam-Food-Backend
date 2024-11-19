@@ -33,7 +33,7 @@
 
 ### `/user/logout`
 
-- **Method:** GET  
+- **Method:** POST  
 - **Required Fields:**
   - `token`: from req.headers.authorization
 
