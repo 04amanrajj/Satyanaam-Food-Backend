@@ -29,16 +29,16 @@
     "menuCategories": [
         "Salad",
         "Papad",
-        "Fast_Food",
-        "Rajasthani_Special",
-        "Paneer_Ka_Swad",
-        "Dal_Tadka",
-        "Sabzio_Ka_Khazana",
-        "Veg_and_Kofta",
+        "Fast Food",
+        "Rajasthani Special",
+        "Paneer Ka Swad",
+        "Dal Tadka",
+        "Sabzio Ka Khazana",
+        "Veg & Kofta",
         "Gujarati",
-        "Garam_Garam_Tawa_Se",
+        "Garam Garam Tawa Se",
         "Rice",
-        "Dahi_And_Raita",
+        "Dahi & Raita",
         "Thali"
     ]
 }
