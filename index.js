@@ -9,6 +9,7 @@ const { orderRoute } = require("./routes/order.routes");
 const { defaultRoute } = require("./routes/default.routes");
 const { checkBlacklist } = require("./middlewares/checkBlacklist.middleware");
 const cors = require("cors");
+const { adminRoute } = require("./routes/admin.route");
 require("dotenv").config();
 
 const app = express();
@@ -28,6 +29,9 @@ app.use(checkBlacklist);
 app.use("/wishlist", wishlistRoute);
 app.use("/cart", cartRoute);
 app.use("/order", orderRoute);
+
+// admin
+app.use("/admin", adminRoute);
 
 // server initialization
 app.listen(port, async () => {
