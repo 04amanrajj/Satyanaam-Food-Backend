@@ -60,23 +60,4 @@ exports.newOrder = async (req, res) => {
   }
 };
 
-exports.updateOrder = async (req, res) => {
-  try {
-    const role = req.role;
-    if (role !== "admin")
-      return res.status(403).send({ message: "You are not authorized" });
 
-    const orderID = req.params.id;
-    const { status } = req.body;
-    // check for valid orders
-    const order = await OrderModel.findOne({ _id: orderID });
-    if (!order) return res.status(404).send({ message: "Order not found" });
-
-    await OrderModel.findOneAndUpdate({ _id: orderID }, { status });
-
-    res.status(200).send("order updated");
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).send({ message: error.message });
-  }
-};
