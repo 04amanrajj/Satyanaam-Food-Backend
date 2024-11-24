@@ -54,7 +54,7 @@
 
 ---
 
-### `POST /menu/`
+### `POST admin/menu/`
 
 - Adds a new menu item.  
 - **Access:** Only Admin can access.  
@@ -67,7 +67,7 @@
 
 ---
 
-### `PUT /menu/:id`
+### `PUT admin/menu/:id`
 
 - Updates an existing menu item.  
 - **Access:** Only Admin can access.  
@@ -80,7 +80,7 @@
 
 ---
 
-### `DELETE /menu/:id`
+### `DELETE admin/menu/:id`
 
 - Removes a menu item from the database.  
 - **Access:** Only Admin can access.
@@ -156,7 +156,7 @@
 
 ---
 
-### `PUT /order/:id`
+### `PUT admin/order/:id`
 - Updates the status of an order.  
 - **Access:** Only Admin can access.  
 - **Response:**  
