@@ -44,8 +44,17 @@ exports.loginUser = async (req, res) => {
   try {
     const payLoad = req.body;
 
+    const query = {};
+
+    if (payLoad.email) {
+      query.email = payLoad.email;
+    } else if (payLoad.phone) {
+      query.phone = payLoad.phone;
+    }
+
     // check for existing user
-    const user = await UserModel.findOne({ email: payLoad.email }).lean(); //lean return js plain obj
+    console.log(payLoad);
+    const user = await UserModel.findOne(query).lean();
     if (!user)
       return res
         .status(404)
@@ -53,6 +62,7 @@ exports.loginUser = async (req, res) => {
 
     // check pass
     const checkPassword = await bcrypt.compare(payLoad.password, user.password);
+    console.log(checkPassword);
     if (!checkPassword)
       return res.status(400).send({ message: "Invalid credentials" });
 
