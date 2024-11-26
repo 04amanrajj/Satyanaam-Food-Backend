@@ -6,4 +6,4 @@ const cartSchema = mongoose.Schema({
   totalprice: { type: Number, required: true },
 });
 
-exports.CartModel = mongoose.model("cart-item", cartSchema);
+exports.CartModel = mongoose.model("cart_item", cartSchema);
