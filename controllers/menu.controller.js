@@ -1,9 +1,17 @@
 const { MenuModel } = require("../models/menu.model");
 
-
 exports.getMenuItem = async (req, res) => {
   try {
-    const { page = 1, limit = 10, category, minprice, maxprice, q } = req.query;
+    const {
+      page = 1,
+      limit = 10,
+      category,
+      minprice,
+      maxprice,
+      rating,
+      q,
+      price,
+    } = req.query;
     let filter = {};
 
     if (category) filter.category = category;
@@ -15,14 +23,26 @@ exports.getMenuItem = async (req, res) => {
       filter.$or = [{ name: searchRegex }, { description: searchRegex }];
     }
 
+    let sortOptions = {};
+    if (price == 1) {
+      sortOptions = { price: 1 };
+    } else if (price == -1) {
+      sortOptions = { price: -1 };
+    }
+
+    if (rating) {
+      filter.rating = { $gte: rating };
+    }
+
     const menuitems = await MenuModel.find(filter)
       .skip((page - 1) * limit)
-      .limit(limit);
+      .limit(limit)
+      .sort(sortOptions);
 
     const totalitems = await MenuModel.countDocuments(filter);
     const totalPages = Math.ceil(totalitems / limit);
 
-    console.log({menuitems});
+    console.log({ menuitems });
 
     res.status(200).send({
       data: menuitems,
@@ -38,9 +58,3 @@ exports.getMenuItem = async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 };
-
-
-
-
-
-
