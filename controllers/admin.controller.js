@@ -3,6 +3,7 @@
 // signup
 
 const { MenuModel } = require("../models/menu.model");
+const { OrderModel } = require("../models/order.model");
 
 // reset menu
 exports.resetMenu = async (req, res) => {
@@ -94,7 +95,7 @@ exports.deleteMenuItem = async (req, res) => {
   }
 };
 
-// update menu
+// update order
 exports.updateOrder = async (req, res) => {
   try {
     const role = req.role;

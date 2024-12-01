@@ -32,26 +32,13 @@ exports.newOrder = async (req, res) => {
     const cart = await CartModel.findOne({ userID, _id: cartID });
     if (!cart) return res.status(404).send({ message: "Cart not found" });
 
-    // check for existing order with this userID
-    const existingOrder = await OrderModel.findOne({
-      userID,
-      status: "pending",
-    });
-    if (existingOrder)
-      return res
-        .status(409)
-        .send({ message: "there's a pending order from this user" });
-
     const order = new OrderModel({
       userID,
       items: cart.items,
-      totalprice: cart.totalprice,
+      totalprice: cart.totalprice.toFixed(2),
       status,
     });
     await order.save();
-
-    // remove cart
-    await CartModel.findOneAndDelete({ _id: cartID });
 
     res.status(200).send({ data: order, cart });
   } catch (error) {
