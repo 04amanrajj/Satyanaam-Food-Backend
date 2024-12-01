@@ -9,7 +9,7 @@ const { orderRoute } = require("./routes/order.routes");
 const { defaultRoute } = require("./routes/default.routes");
 const { checkBlacklist } = require("./middlewares/checkBlacklist.middleware");
 const cors = require("cors");
-const { adminRoute } = require("./routes/admin.route");
+const { adminRoute } = require("./routes/admin.routes");
 require("dotenv").config();
 
 const app = express();
