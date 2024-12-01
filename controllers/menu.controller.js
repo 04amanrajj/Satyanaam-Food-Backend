@@ -4,7 +4,7 @@ exports.getMenuItem = async (req, res) => {
   try {
     const {
       page = 1,
-      limit = 10,
+      limit = 1000,
       category,
       minprice,
       maxprice,
@@ -46,13 +46,24 @@ exports.getMenuItem = async (req, res) => {
 
     res.status(200).send({
       data: menuitems,
-      extra: {
+      metadata: {
         currentPage: +page,
         totalPages,
         totalitems,
         itemsPerPage: limit,
       },
     });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+};
+
+exports.getItemById = async (req, res) => {
+  try {
+    const itemid = req.params.id;
+    const item = await MenuModel.find({ _id: itemid });
+    res.status(200).send({ data: item });
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });
