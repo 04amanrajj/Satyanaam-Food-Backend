@@ -6,7 +6,7 @@
             "category": "Salad",
             "available": true,
             "description": "A fresh salad made with green vegetables.",
-            "image": "path/to/green-salad.jpg",
+            "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/ff0whb6aphp3evdu3txa",
             "rating": 4
         },
         {
@@ -15,7 +15,7 @@
             "category": "Salad",
             "available": true,
             "description": "A refreshing cucumber salad.",
-            "image": "path/to/kakdi-salad.jpg",
+            "image": "https://i.pinimg.com/736x/6c/a6/ae/6ca6ae79abb5ca98a3ecaf939eafffad.jpg",
             "rating": 4.4
         },
         {
@@ -24,7 +24,7 @@
             "category": "Salad",
             "available": true,
             "description": "Freshly chopped tomatoes with seasoning.",
-            "image": "path/to/tomato-salad.jpg",
+            "image": "https://i.pinimg.com/736x/98/5c/d7/985cd79f6e4363db0ab823741f1e8480.jpg",
             "rating": 4.8
         },
         {
@@ -33,7 +33,7 @@
             "category": "Salad",
             "available": true,
             "description": "A crisp and refreshing cucumber salad.",
-            "image": "path/to/cucumber-salad.jpg",
+            "image": "https://i.pinimg.com/736x/86/40/6c/86406c0697eb63acb206202c257d1a85.jpg",
             "rating": 4.8
         }
     ],
@@ -44,7 +44,7 @@
             "category": "Papad",
             "available": true,
             "description": "Crispy roasted papad.",
-            "image": "path/to/roasted-papad.jpg",
+            "image": "https://i.pinimg.com/736x/ad/e9/93/ade9930860389b173f88ef4a524d604b.jpg",
             "rating": 4.1
         },
         {
@@ -53,7 +53,7 @@
             "category": "Papad",
             "available": true,
             "description": "Papad topped with masala seasoning.",
-            "image": "path/to/masala-papad.jpg",
+            "image": "https://i.pinimg.com/736x/64/11/eb/6411eb149fd7b897493a38cef6892ae4.jpg",
             "rating": 4
         }
     ],
@@ -64,7 +64,7 @@
             "category": "Fast Food",
             "available": true,
             "description": "Pasta cooked with spicy red sauce.",
-            "image": "path/to/red-pasta.jpg",
+            "image": "https://i.pinimg.com/736x/27/3a/a2/273aa28e9d867fc4b4d07b56cc8c0d77.jpg",
             "rating": 4
         },
         {
@@ -73,7 +73,7 @@
             "category": "Fast Food",
             "available": true,
             "description": "Stir-fried noodles with vegetables.",
-            "image": "path/to/veg-chowmein.jpg",
+            "image": "https://i.pinimg.com/736x/87/36/c2/8736c260a68a658a0f7d8938aab48b1a.jpg",
             "rating": 4.1
         },
         {
@@ -82,7 +82,7 @@
             "category": "Fast Food",
             "available": true,
             "description": "Crispy fried vegetable balls in spicy sauce.",
-            "image": "path/to/veg-manchurian.jpg",
+            "image": "https://i.pinimg.com/736x/7c/71/c4/7c71c4937498498f29b2c66f8eef8a3e.jpg",
             "rating": 4.1
         },
         {
@@ -91,7 +91,7 @@
             "category": "Fast Food",
             "available": true,
             "description": "Fried paneer cubes in spicy sauce.",
-            "image": "path/to/paneer-chilli.jpg",
+            "image": "https://i.pinimg.com/736x/03/1d/03/031d03ad7dcd51e1672cdc6db3bf9aad.jpg",
             "rating": 4.3
         }
     ],
@@ -102,7 +102,7 @@
             "category": "Rajasthani Special",
             "available": true,
             "description": "A mix of daals cooked with spices.",
-            "image": "path/to/black-mix-daal-fry.jpg",
+            "image": "https://i.pinimg.com/736x/de/a1/22/dea12217425122b795ce7e688d65915b.jpg",
             "rating": 4.2
         },
         {
@@ -111,7 +111,7 @@
             "category": "Rajasthani Special",
             "available": true,
             "description": "Traditional Rajasthani dish of baati with daal.",
-            "image": "path/to/daal-baati.jpg",
+            "image": "https://i.pinimg.com/736x/f0/f1/96/f0f196222ef3fea4cc8483cea334e09c.jpg",
             "rating": 4.4
         },
         {
@@ -120,7 +120,7 @@
             "category": "Rajasthani Special",
             "available": true,
             "description": "A single piece of baati, a Rajasthani bread.",
-            "image": "path/to/baati.jpg",
+            "image": "https://i.pinimg.com/736x/1f/79/9a/1f799aeb46aa85f7099b22d61c52824c.jpg",
             "rating": 4.6
         }
     ],
@@ -131,7 +131,7 @@
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Paneer cooked in rich butter masala gravy.",
-            "image": "path/to/paneer-butter-masala.jpg",
+            "image": "https://i.pinimg.com/736x/9a/65/90/9a65906e09943ce49c876dbe7509af86.jpg",
             "rating": 4.5
         },
         {
@@ -140,7 +140,7 @@
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Scrambled paneer with spices.",
-            "image": "path/to/paneer-bhurji.jpg",
+            "image": "https://i.pinimg.com/736x/4b/e5/47/4be547f70e81749ec66802c1efac4f66.jpg",
             "rating": 4.1
         },
         {
@@ -149,7 +149,7 @@
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Paneer cooked with spinach in a spicy gravy.",
-            "image": "path/to/palak-paneer.jpg",
+            "image": "https://i.pinimg.com/736x/2f/5e/ae/2f5eae6b7d5badd5dbeee57e81d28a84.jpg",
             "rating": 4.5
         },
         {
@@ -158,7 +158,7 @@
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Paneer cooked in a creamy royal gravy.",
-            "image": "path/to/shahi-paneer.jpg",
+            "image": "https://i.pinimg.com/736x/da/d3/12/dad3123d038fd727871bccccb1dff6b9.jpg",
             "rating": 4.5
         },
         {
@@ -167,7 +167,7 @@
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Cottage cheese cooked with peas in a flavorful gravy.",
-            "image": "path/to/matar-paneer.jpg",
+            "image": "https://i.pinimg.com/736x/ab/e8/7e/abe87e141c8ac81290730af7f651f17e.jpg",
             "rating": 4
         },
         {
@@ -176,7 +176,7 @@
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Paneer cooked with bell peppers and spices.",
-            "image": "path/to/kadai-paneer.jpg",
+            "image": "https://i.pinimg.com/736x/33/f8/47/33f84733f890ae8648a8525eb8d6f791.jpg",
             "rating": 4.4
         }
     ],
@@ -187,7 +187,7 @@
             "category": "Dal Tadka",
             "available": true,
             "description": "Dal cooked with butter and spices.",
-            "image": "path/to/butter-dal-fry.jpg",
+            "image": "https://i.pinimg.com/736x/1b/00/ae/1b00ae70c63d830eb325fd9064ef3d74.jpg",
             "rating": 4.3
         },
         {
@@ -196,7 +196,7 @@
             "category": "Dal Tadka",
             "available": true,
             "description": "Spicy dal cooked with garlic and cumin.",
-            "image": "path/to/dal-tadka-spicy.jpg",
+            "image": "https://i.pinimg.com/736x/89/0e/cf/890ecf7aa6e4c5bc7610b13dfe5ba876.jpg",
             "rating": 4.7
         },
         {
@@ -205,7 +205,7 @@
             "category": "Dal Tadka",
             "available": true,
             "description": "Dal cooked with mild spices.",
-            "image": "path/to/dal-fry.jpg",
+            "image": "https://i.pinimg.com/736x/38/06/60/38066053d5f4f136935b351fb441aa09.jpg",
             "rating": 4.8
         },
         {
@@ -214,7 +214,7 @@
             "category": "Dal Tadka",
             "available": true,
             "description": "Dal cooked with spinach.",
-            "image": "path/to/dal-palak.jpg",
+            "image": "https://i.pinimg.com/736x/2c/f6/40/2cf6408d199602d0f6a7e1ab1c07cb21.jpg",
             "rating": 4
         },
         {
@@ -223,7 +223,7 @@
             "category": "Dal Tadka",
             "available": true,
             "description": "Traditional Gujarati style dal with spices.",
-            "image": "path/to/gujarati-dal.jpg",
+            "image": "https://i.pinimg.com/736x/e0/07/fd/e007fd1a70baa5175f632db8036a0d3f.jpg",
             "rating": 4.5
         }
     ],
@@ -234,7 +234,7 @@
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Curry made with cashew nuts in a rich gravy.",
-            "image": "path/to/kaju-curry.jpg",
+            "image": "https://i.pinimg.com/736x/c8/0f/15/c80f15e27763822c6057ccb15668acff.jpg",
             "rating": 4.7
         },
         {
@@ -243,7 +243,7 @@
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Potatoes cooked in a rich and spicy gravy.",
-            "image": "path/to/dum-aloo.jpg",
+            "image": "https://i.pinimg.com/736x/01/10/7a/01107a4cb0b2d142f4d100e80f919c22.jpg",
             "rating": 4
         },
         {
@@ -252,7 +252,7 @@
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Chickpeas cooked in spicy masala gravy.",
-            "image": "path/to/chole-masala.jpg",
+            "image": "https://i.pinimg.com/736x/e5/1f/bd/e51fbd9a3690b5b64e708cf017a96194.jpg",
             "rating": 4.9
         },
         {
@@ -261,7 +261,7 @@
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Green peas cooked in a spicy masala gravy.",
-            "image": "path/to/green-peas-masala.jpg",
+            "image": "https://i.pinimg.com/736x/a1/c9/7f/a1c97f15f3114bed44e7801404df2306.jpg",
             "rating": 4
         },
         {
@@ -270,7 +270,7 @@
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Methi and peas cooked in a creamy gravy.",
-            "image": "path/to/malai-methi-matar.jpg",
+            "image": "https://i.pinimg.com/736x/61/39/ff/6139ff0e880bb086f9c50380717bab51.jpg",
             "rating": 4.2
         },
         {
@@ -279,7 +279,7 @@
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Okra cooked in a spicy masala gravy.",
-            "image": "path/to/bhindi-masala.jpg",
+            "image": "https://i.pinimg.com/736x/75/b8/5c/75b85c6fec244de10add9a97ffeadafa.jpg",
             "rating": 4.1
         },
         {
@@ -288,7 +288,7 @@
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Potato and peas cooked in a mild gravy.",
-            "image": "path/to/aloo-matar.jpg",
+            "image": "https://i.pinimg.com/736x/65/50/87/655087423338e7c898081bd204e34ddb.jpg",
             "rating": 4.2
         }
     ],
@@ -299,7 +299,7 @@
             "category": "Veg & Kofta",
             "available": true,
             "description": "A mix of vegetables cooked with spices.",
-            "image": "https://i.pinimg.com/736x/c0/56/6b/c0566b8ce26a85119cb9dbaff7221bd4.jpg",
+            "image": "https://i.pinimg.com/736x/65/90/54/659054c8051e294ed83e85797abc22f1.jpg",
             "rating": 4.5
         },
         {
@@ -308,7 +308,7 @@
             "category": "Veg & Kofta",
             "available": true,
             "description": "Vegetables cooked in a spicy Jaipur style gravy.",
-            "image": "path/to/veg-jaipuri.jpg",
+            "image": "https://i.pinimg.com/736x/38/9a/89/389a899027662971e74f6d4969b6c90d.jpg",
             "rating": 4.2
         },
         {
@@ -317,7 +317,7 @@
             "category": "Veg & Kofta",
             "available": true,
             "description": "A spicy and flavorful vegetable dish from Kolhapur.",
-            "image": "path/to/veg-kolhapuri.jpg",
+            "image": "https://i.pinimg.com/736x/b3/c3/d3/b3c3d3ba3a5e5a965068976c41bcf7fb.jpg",
             "rating": 4.2
         },
         {
@@ -326,7 +326,7 @@
             "category": "Veg & Kofta",
             "available": true,
             "description": "Soft koftas in a creamy gravy.",
-            "image": "path/to/malai-kofta.jpg",
+            "image": "https://i.pinimg.com/736x/77/6b/6d/776b6d49ec2ddc58033db5786ee135f2.jpg",
             "rating": 4
         },
         {
@@ -335,7 +335,7 @@
             "category": "Veg & Kofta",
             "available": true,
             "description": "Koftas cooked in a rich and spicy gravy.",
-            "image": "path/to/kadai-kofta.jpg",
+            "image": "https://i.pinimg.com/736x/21/d3/51/21d351c96bd8478c4148e41a6ea98f13.jpg",
             "rating": 4.7
         }
     ],
@@ -346,7 +346,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "A traditional yogurt-based curry.",
-            "image": "path/to/kadhi.jpg",
+            "image": "https://i.pinimg.com/736x/28/c1/80/28c180223b2f54e03b88e14b77176e22.jpg",
             "rating": 4.3
         },
         {
@@ -355,7 +355,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "A mild, nutritious rice and lentil dish.",
-            "image": "path/to/khichdi.jpg",
+            "image": "https://i.pinimg.com/736x/6c/47/6b/6c476bbf2e87a440465907046f1ef905.jpg",
             "rating": 4.1
         },
         {
@@ -364,7 +364,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "Spicy rice and lentil dish with vegetables.",
-            "image": "path/to/masala-khichdi.jpg",
+            "image": "https://i.pinimg.com/736x/ab/81/ec/ab81ec70087a778266a5115f3f424ec7.jpg",
             "rating": 4.2
         },
         {
@@ -373,7 +373,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "A spicy and tangy tomato curry topped with sev.",
-            "image": "path/to/sev-tomato.jpg",
+            "image": "https://i.pinimg.com/736x/21/56/6b/21566b74831bdcb47330d361e5535e6f.jpg",
             "rating": 4.8
         },
         {
@@ -382,7 +382,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "Green peas and potatoes cooked in a mild curry.",
-            "image": "path/to/vatana-batata.jpg",
+            "image": "https://i.pinimg.com/736x/ed/01/ee/ed01eee4d48b4c60e96fae927db91abe.jpg",
             "rating": 4.9
         },
         {
@@ -391,7 +391,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "Smoked eggplant mashed and cooked with spices.",
-            "image": "path/to/baingan-bharta.jpg",
+            "image": "https://i.pinimg.com/736x/c7/6a/c6/c76ac66e3d9029a3168aba17e62c9f37.jpg",
             "rating": 4.9
         },
         {
@@ -400,7 +400,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "Cauliflower and peas cooked in a mild gravy.",
-            "image": "path/to/flower-matar.jpg",
+            "image": "https://i.pinimg.com/736x/2a/cf/d2/2acfd2392b08903462af0f428203d321.jpg",
             "rating": 4.2
         },
         {
@@ -409,7 +409,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "Cauliflower and peas cooked in a spicy gravy.",
-            "image": "path/to/gobi-matar.jpg",
+            "image": "https://i.pinimg.com/736x/92/30/d9/9230d96848eef0fa74a636a30df00674.jpg",
             "rating": 4.3
         },
         {
@@ -418,7 +418,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "Spinach and tomatoes cooked with spices.",
-            "image": "path/to/palak-tomato.jpg",
+            "image": "https://i.pinimg.com/736x/9a/2b/83/9a2b83bc224e5e1058923f8916728e57.jpg",
             "rating": 4.6
         },
         {
@@ -427,7 +427,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "Eggplant and potatoes cooked in a mild curry.",
-            "image": "path/to/ringana-batata.jpg",
+            "image": "https://i.pinimg.com/736x/02/b0/a6/02b0a652fc9debf71affd3cedb09146d.jpg",
             "rating": 4.4
         },
         {
@@ -436,7 +436,7 @@
             "category": "Gujarati",
             "available": true,
             "description": "Dry potato curry with traditional Gujarati spices.",
-            "image": "path/to/batata-ni-sukhi-bhaji.jpg",
+            "image": "https://i.pinimg.com/736x/72/91/73/72917321bb1171dbb3e66c3aef71a77f.jpg",
             "rating": 4.6
         }
     ],
@@ -447,7 +447,7 @@
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Freshly made plain chapati.",
-            "image": "path/to/plain-chapati.jpg",
+            "image": "https://i.pinimg.com/736x/b7/c3/aa/b7c3aa9dedd75d1d233ffee2c96a4800.jpg",
             "rating": 4.8
         },
         {
@@ -456,7 +456,7 @@
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Chapati brushed with butter.",
-            "image": "path/to/butter-chapati.jpg",
+            "image": "https://i.pinimg.com/736x/2d/42/c3/2d42c31d6b36f539041ccb79483ae796.jpg",
             "rating": 4.1
         },
         {
@@ -465,7 +465,7 @@
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Soft and flaky paratha.",
-            "image": "path/to/plain-paratha.jpg",
+            "image": "https://i.pinimg.com/736x/32/bf/20/32bf207cea202afa0779c1dc1cbb8fb7.jpg",
             "rating": 4.1
         },
         {
@@ -474,7 +474,7 @@
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Flaky paratha brushed with butter.",
-            "image": "path/to/butter-paratha.jpg",
+            "image": "https://i.pinimg.com/736x/eb/61/c8/eb61c818c33a1c5ee295c21705f92281.jpg",
             "rating": 4.9
         },
         {
@@ -483,7 +483,7 @@
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Traditional crispy flatbread.",
-            "image": "path/to/bhakri.jpg",
+            "image": "https://i.pinimg.com/736x/f3/06/bb/f306bbd75a198df9ea951e8b338132f3.jpg",
             "rating": 4.7
         }
     ],
@@ -494,7 +494,7 @@
             "category": "Rice",
             "available": true,
             "description": "Simple steamed rice.",
-            "image": "path/to/plain-rice.jpg",
+            "image": "https://i.pinimg.com/736x/fb/5a/15/fb5a15fd8b03b01c7ef16751484a3e07.jpg",
             "rating": 4.5
         },
         {
@@ -503,7 +503,7 @@
             "category": "Rice",
             "available": true,
             "description": "Rice cooked with cumin seeds.",
-            "image": "path/to/jeera-rice.jpg",
+            "image": "https://i.pinimg.com/736x/43/f4/3e/43f43e81b5bd816b5d112973c98c07ed.jpg",
             "rating": 4.9
         },
         {
@@ -512,7 +512,7 @@
             "category": "Rice",
             "available": true,
             "description": "Rice cooked with vegetables and mild spices.",
-            "image": "path/to/veg-pulav.jpg",
+            "image": "https://i.pinimg.com/736x/d0/cf/3d/d0cf3deb6d42a59ef88dea4647e04317.jpg",
             "rating": 4.1
         },
         {
@@ -521,7 +521,7 @@
             "category": "Rice",
             "available": true,
             "description": "Spicy vegetable biryani made with basmati rice.",
-            "image": "path/to/veg-biryani.jpg",
+            "image": "https://i.pinimg.com/736x/55/40/07/554007c5b5490cb310937d2c7954f0ae.jpg",
             "rating": 4.3
         }
     ],
@@ -532,7 +532,7 @@
             "category": "Dahi & Raita",
             "available": true,
             "description": "A yogurt-based side dish with mixed vegetables.",
-            "image": "path/to/veg-raita.jpg",
+            "image": "https://i.pinimg.com/736x/19/ac/2a/19ac2a9fece5424bb1bfaa901a3450fe.jpg",
             "rating": 4.8
         },
         {
@@ -541,7 +541,7 @@
             "category": "Dahi & Raita",
             "available": true,
             "description": "Yogurt mixed with finely chopped onions and spices.",
-            "image": "path/to/onion-raita.jpg",
+            "image": "https://i.pinimg.com/736x/bc/43/3b/bc433bfcedca9d3ba56132c73dbf75c2.jpg",
             "rating": 4.2
         },
         {
@@ -550,7 +550,7 @@
             "category": "Dahi & Raita",
             "available": true,
             "description": "Crispy boondi mixed with yogurt and seasoned with spices.",
-            "image": "path/to/boondi-raita.jpg",
+            "image": "https://i.pinimg.com/736x/c1/76/3b/c1763b8882df8d7f4caccf3e87a87111.jpg",
             "rating": 4.5
         },
         {
@@ -559,7 +559,7 @@
             "category": "Dahi & Raita",
             "available": true,
             "description": "A refreshing drink made from yogurt, water, and spices.",
-            "image": "path/to/butter-milk.jpg",
+            "image": "https://i.pinimg.com/736x/2d/b9/2b/2db92b39025c6b275a831034f90e8ce1.jpg",
             "rating": 4.5
         },
         {
@@ -568,7 +568,7 @@
             "category": "Dahi & Raita",
             "available": true,
             "description": "Plain yogurt served as a side dish or snack.",
-            "image": "path/to/dahi.jpg",
+            "image": "https://i.pinimg.com/736x/2a/5a/52/2a5a52e2186f0a7eccabbec3125ef6c0.jpg",
             "rating": 4.4
         }
     ],
@@ -579,25 +579,25 @@
             "category": "Thali",
             "available": true,
             "description": "Dal fry + daily veg + 5 chapati + papad + salad + butter milk + rice",
-            "image": "path/to/simple-thali.jpg",
+            "image": "https://i.pinimg.com/736x/1d/f6/36/1df6362c66dd293cc90ef0ede65b3818.jpg",
             "rating": 4.9
         },
         {
-            "name": "Satynam Special Thali",
+            "name": "Special Thali",
             "price": 331.2,
             "category": "Thali",
             "available": true,
             "description": "Paneer butter masala + regular veg + butter paratha + jeera rice + dal fry + papad + salad + buttermilk",
-            "image": "path/to/vandana-special-thali.jpg",
+            "image": "https://i.pinimg.com/736x/25/0a/d8/250ad822320f0bc3c9f5fc4c64440a1b.jpg",
             "rating": 4.7
         },
         {
-            "name": "Satynam Jain Thali",
+            "name": "Jain Thali",
             "price": 345.6,
             "category": "Thali",
             "available": true,
             "description": "Gulab jamun + dal + rice + plain chapati + sabji + achar + papad + salad",
-            "image": "path/to/satynam-jain-thali.jpg",
+            "image": "https://i.pinimg.com/736x/e3/f6/5d/e3f65d4d7d849cbd04f5c8167e544ea3.jpg",
             "rating": 4.8
         }
     ]
