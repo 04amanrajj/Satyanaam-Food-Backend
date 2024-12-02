@@ -120,8 +120,9 @@ exports.deleteCartItem = async (req, res) => {
       return res.status(404).send({ message: "Item not found in cart" });
 
     // find item price
-    const item = await MenuModel.findOne({ itemid: itemToRemove.itemid });
+    const item = await MenuModel.findOne({ _id: itemToRemove.itemid });
     // recalculate price
+    console.log(item)
     const priceDiffrance = itemToRemove.quantity * item.price;
     const updateCart = await CartModel.findOneAndUpdate(
       { userID },
