@@ -85,10 +85,35 @@ exports.deleteMenuItem = async (req, res) => {
     const _id = req.params.id;
 
     // check & delete item
-    const dish = await MenuModel.findByIdAndDelete({ _id });
+    const dish = await MenuModel.findOne({ _id });
     if (!dish) return res.status(404).send({ message: "dish not found" });
+    await MenuModel.findByIdAndDelete({ _id });
 
     res.status(200).send({ message: "dish deleted" });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+};
+// get all orders
+exports.getOrders = async (req, res) => {
+  try {
+    if (req.role !== "admin")
+      return res.status(403).send({ message: "You are not authorized" });
+
+    const userID = req.userID;
+    const { status } = req.query;
+    let filter = {};
+    if (status) filter.status = status;
+
+    console.log(filter);
+    const order = await OrderModel.find(filter);
+    if (order.length == 0)
+      return res
+        .status(404)
+        .send({ message: "No orders found" });
+
+    res.status(200).send(order);
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });

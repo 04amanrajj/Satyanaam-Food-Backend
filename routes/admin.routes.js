@@ -8,6 +8,7 @@ const {
   updateMenuItem,
   deleteMenuItem,
   updateOrder,
+  getOrders,
 } = require("../controllers/admin.controller");
 
 const adminRoute = Router();
@@ -24,6 +25,7 @@ adminRoute.put("/menu/:id", updateMenuItem); // update a menu item
 adminRoute.delete("/menu/:id", deleteMenuItem); // delete a menu item
 
 // Order-only routes
+adminRoute.get("/order", getOrders);
 adminRoute.put("/order/:id", updateOrder);
 
 module.exports = { adminRoute };
