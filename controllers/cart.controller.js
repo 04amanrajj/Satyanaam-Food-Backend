@@ -9,11 +9,7 @@ exports.getFromCart = async (req, res) => {
     const cart = await CartModel.findOne({ userID });
     if (!cart) return res.status(404).send({ message: "Cart not found" });
 
-    // find items
-    const itemIds = cart.items.map((element) => element.itemid);
-    const items = await MenuModel.find({ _id: { $in: itemIds } });
-
-    res.status(200).send({ data: cart, items });
+    res.status(200).send({ data: cart });
   } catch (error) {
     console.log(error.message);
     res.status(404).send({ message: error.message });
@@ -36,14 +32,14 @@ exports.addToCart = async (req, res) => {
     // check for duplicate items
     const itemExists = await CartModel.findOne({ userID });
     if (itemExists)
-      if (itemExists.items.some((item) => item.itemid == itemid))
+      if (itemExists.items.some((item) => item.item._id == itemid))
         return res.status(400).send({ message: "item already in cart" });
 
     // add/update item to cart
     const cart = await CartModel.findOneAndUpdate(
       { userID },
       {
-        $push: { items: { itemid, quantity } },
+        $push: { items: { item, quantity } },
         $inc: { totalprice: totalprice },
       },
       { upsert: true }
@@ -82,7 +78,7 @@ exports.updateCartItem = async (req, res) => {
     if (!cart) return res.status(404).send({ message: "Cart not found" });
 
     // find and update quantity
-    const currentItem = cart.items.find((i) => i.itemid == itemid);
+    const currentItem = cart.items.find((i) => i.item._id == itemid);
     if (!currentItem)
       return res.status(404).send({ message: "Item not found in cart" });
 
@@ -91,7 +87,7 @@ exports.updateCartItem = async (req, res) => {
 
     // update item's quantity & price
     await CartModel.findOneAndUpdate(
-      { userID, "items.itemid": itemid },
+      { userID, "items.item._id": itemid },
       {
         $set: { "items.$.quantity": quantity }, // Update quantity
         $inc: { totalprice: priceDiffrance }, // Adjust total price
@@ -115,26 +111,22 @@ exports.deleteCartItem = async (req, res) => {
     if (!cart) return res.status(404).send({ message: "Cart not found" });
 
     // find item to remove
-    const itemToRemove = cart.items.find((i) => i.itemid == itemid);
-    if (!itemToRemove)
+    const cartItem = cart.items.find((i) => i.item._id == itemid);
+    if (!cartItem)
       return res.status(404).send({ message: "Item not found in cart" });
 
-    // find item price
-    const item = await MenuModel.findOne({ _id: itemToRemove.itemid });
     // recalculate price
-    console.log(item)
-    const priceDiffrance = itemToRemove.quantity * item.price;
-    const updateCart = await CartModel.findOneAndUpdate(
+    console.log(item);
+    const priceDiffrance = cartItem.quantity * cartItem.item.price;
+
+    await CartModel.findOneAndUpdate(
       { userID },
       {
-        $pull: { items: { itemid: itemid } },
+        $pull: { items: { "item._id": itemid } },
         $inc: { totalprice: -priceDiffrance },
       }
     );
-    if (!updateCart) throw new Error("failed to remove item from cart");
-    res
-      .status(200)
-      .send({ data: updateCart, message: "item removed from cart" });
+    res.status(200).send({ message: "item removed from cart" });
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });
