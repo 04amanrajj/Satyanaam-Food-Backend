@@ -42,8 +42,6 @@ exports.getMenuItem = async (req, res) => {
     const totalitems = await MenuModel.countDocuments(filter);
     const totalPages = Math.ceil(totalitems / limit);
 
-    console.log({ menuitems });
-
     res.status(200).send({
       data: menuitems,
       metadata: {

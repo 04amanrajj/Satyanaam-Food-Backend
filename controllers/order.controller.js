@@ -26,7 +26,7 @@ exports.getOrder = async (req, res) => {
 exports.newOrder = async (req, res) => {
   try {
     const cartID = req.body.cartid;
-    const status = "pending";
+    const status = "Pending";
     const userID = req.userID;
 
     const cart = await CartModel.findOne({ userID, _id: cartID });

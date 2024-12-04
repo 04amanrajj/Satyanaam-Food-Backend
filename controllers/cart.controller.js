@@ -39,8 +39,8 @@ exports.addToCart = async (req, res) => {
     const cart = await CartModel.findOneAndUpdate(
       { userID },
       {
-        $push: { items: { item, quantity } },
-        $inc: { totalprice: totalprice },
+        $push: { items: { itemid, item, quantity } },
+        $inc: { totalprice },
       },
       { upsert: true }
     );
@@ -77,24 +77,24 @@ exports.updateCartItem = async (req, res) => {
     const cart = await CartModel.findOne({ userID });
     if (!cart) return res.status(404).send({ message: "Cart not found" });
 
-    // find and update quantity
-    const currentItem = cart.items.find((i) => i.item._id == itemid);
+    // Find and update quantity
+    const currentItem = cart.items.find((i) => i.itemid == itemid);
+
     if (!currentItem)
       return res.status(404).send({ message: "Item not found in cart" });
 
-    const quantityDiffrance = quantity - currentItem.quantity;
-    const priceDiffrance = item.price * quantityDiffrance;
+    const quantityDifference = quantity - currentItem.quantity;
+    const priceDifference = item.price * quantityDifference;
 
-    // update item's quantity & price
     await CartModel.findOneAndUpdate(
-      { userID, "items.item._id": itemid },
+      { userID, "items.itemid": itemid },
       {
-        $set: { "items.$.quantity": quantity }, // Update quantity
-        $inc: { totalprice: priceDiffrance }, // Adjust total price
+        $set: { "items.$.quantity": quantity },
+        $inc: { totalprice: priceDifference },
       }
     );
 
-    res.status(200).send({ message: "item's quantity updated" });
+    res.status(200).send({ message: "Item's quantity updated" });
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });
@@ -111,19 +111,18 @@ exports.deleteCartItem = async (req, res) => {
     if (!cart) return res.status(404).send({ message: "Cart not found" });
 
     // find item to remove
-    const cartItem = cart.items.find((i) => i.item._id == itemid);
+    const cartItem = cart.items.find((i) => i.itemid == itemid);
     if (!cartItem)
       return res.status(404).send({ message: "Item not found in cart" });
 
     // recalculate price
-    console.log(item);
-    const priceDiffrance = cartItem.quantity * cartItem.item.price;
+    const priceDifference = cartItem.quantity * cartItem.item.price;
 
     await CartModel.findOneAndUpdate(
       { userID },
       {
-        $pull: { items: { "item._id": itemid } },
-        $inc: { totalprice: -priceDiffrance },
+        $pull: { items: { itemid } },
+        $inc: { totalprice: -priceDifference },
       }
     );
     res.status(200).send({ message: "item removed from cart" });
