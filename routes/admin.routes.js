@@ -9,6 +9,7 @@ const {
   deleteMenuItem,
   updateOrder,
   getOrders,
+  users,
 } = require("../controllers/admin.controller");
 
 const adminRoute = Router();
@@ -18,6 +19,9 @@ adminRoute.use(express.json());
 adminRoute.use(authenticate);
 adminRoute.use(checkBlacklist);
 
+// User-only routes
+adminRoute.post("/user", users);
+
 // Menu-only routes
 adminRoute.post("/menu/reset", resetMenu); // reset menu
 adminRoute.post("/menu/", addMenuItem); // add a menu item
@@ -26,6 +30,6 @@ adminRoute.delete("/menu/:id", deleteMenuItem); // delete a menu item
 
 // Order-only routes
 adminRoute.get("/order", getOrders);
-adminRoute.put("/order/:id", updateOrder);
+adminRoute.patch("/order/:id", updateOrder);
 
 module.exports = { adminRoute };

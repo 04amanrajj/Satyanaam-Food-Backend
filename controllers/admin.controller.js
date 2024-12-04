@@ -4,6 +4,7 @@
 
 const { MenuModel } = require("../models/menu.model");
 const { OrderModel } = require("../models/order.model");
+const { UserModel } = require("../models/user.model");
 
 // reset menu
 exports.resetMenu = async (req, res) => {
@@ -109,9 +110,7 @@ exports.getOrders = async (req, res) => {
     console.log(filter);
     const order = await OrderModel.find(filter);
     if (order.length == 0)
-      return res
-        .status(404)
-        .send({ message: "No orders found" });
+      return res.status(404).send({ message: "No orders found" });
 
     res.status(200).send(order);
   } catch (error) {
@@ -139,5 +138,20 @@ exports.updateOrder = async (req, res) => {
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });
+  }
+};
+
+// specific user
+exports.users = async (req, res) => {
+  try {
+    let param = {};
+    if (req.body.userid) param._id = req.body.userid;
+    console.log(req.body);
+    const users = await UserModel.find(param);
+    if (!users) return res.status(404).send({ message: "No user found" });
+    res.status(200).send({ message: users });
+  } catch (error) {
+    console.log({ error: error.message });
+    res.status(500).send({ error: error.message });
   }
 };
