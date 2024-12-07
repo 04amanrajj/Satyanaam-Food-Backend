@@ -9,7 +9,6 @@ exports.getOrder = async (req, res) => {
     filter.userID = userID;
     if (status) filter.status = status;
 
-    console.log(filter);
     const order = await OrderModel.find(filter);
     if (order.length == 0)
       return res

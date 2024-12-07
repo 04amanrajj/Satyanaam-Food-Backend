@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 exports.userInfo = async (req, res) => {
   try {
     const userID = req.userID;
-    console.log(userID);
     const user = await UserModel.findById(userID);
     if (!user) return res.status(409).send({ message: "Please login first" });
     res.status(200).send({ message: user });
@@ -53,7 +52,6 @@ exports.loginUser = async (req, res) => {
     }
 
     // check for existing user
-    console.log(payLoad);
     const user = await UserModel.findOne(query).lean();
     if (!user)
       return res
@@ -62,7 +60,6 @@ exports.loginUser = async (req, res) => {
 
     // check pass
     const checkPassword = await bcrypt.compare(payLoad.password, user.password);
-    console.log(checkPassword);
     if (!checkPassword)
       return res.status(400).send({ message: "Invalid credentials" });
 

@@ -107,7 +107,6 @@ exports.getOrders = async (req, res) => {
     let filter = {};
     if (status) filter.status = status;
 
-    console.log(filter);
     const order = await OrderModel.find(filter);
     if (order.length == 0)
       return res.status(404).send({ message: "No orders found" });
@@ -146,7 +145,6 @@ exports.users = async (req, res) => {
   try {
     let param = {};
     if (req.body.userid) param._id = req.body.userid;
-    console.log(req.body);
     const users = await UserModel.find(param);
     if (!users) return res.status(404).send({ message: "No user found" });
     res.status(200).send({ message: users });
