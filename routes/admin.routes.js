@@ -25,7 +25,7 @@ adminRoute.post("/user", users);
 // Menu-only routes
 adminRoute.post("/menu/reset", resetMenu); // reset menu
 adminRoute.post("/menu/", addMenuItem); // add a menu item
-adminRoute.put("/menu/:id", updateMenuItem); // update a menu item
+adminRoute.patch("/menu/:id", updateMenuItem); // update a menu item
 adminRoute.delete("/menu/:id", deleteMenuItem); // delete a menu item
 
 // Order-only routes

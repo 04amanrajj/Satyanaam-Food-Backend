@@ -15,7 +15,7 @@ cartRoute.get("/", getFromCart);
 
 cartRoute.post("/", addToCart);
 
-cartRoute.put("/:id", updateCartItem);
+cartRoute.patch("/:id", updateCartItem);
 
 cartRoute.delete("/:id", deleteCartItem);
 
