@@ -19,6 +19,8 @@ const port = process.env.PORT || 4500;
 // public routes
 app.use("/", defaultRoute);
 app.use("/user", userRoute);
+// app.use("/guest")
+// place order :  data {orderData ,addres,name, number, payment } ----> db , user: phone,name
 
 // partially protected routes
 app.use("/menu", menuRoutes);

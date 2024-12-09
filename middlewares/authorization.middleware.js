@@ -5,7 +5,9 @@ exports.authenticate = (req, res, next) => {
   try {
     const token = req.headers.authorization;
     if (!token) {
-      return res.status(403).send({ message: "login first" });
+      req.role = "Guest";
+      next();
+      return; // res.status(403).send({ message: "logged in as guest" });
     }
     // verify token for authentication
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
