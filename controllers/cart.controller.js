@@ -20,7 +20,6 @@ exports.addToCart = async (req, res) => {
   try {
     const { itemid, quantity } = req.body;
     const userID = req.userID;
-
     if (!itemid || !quantity || quantity <= 0) {
       return res.status(400).send({ message: "Invalid itemid or quantity" });
     }
@@ -32,8 +31,25 @@ exports.addToCart = async (req, res) => {
     // check for duplicate items
     const itemExists = await CartModel.findOne({ userID });
     if (itemExists)
-      if (itemExists.items.some((item) => item.item._id == itemid))
-        return res.status(400).send({ message: "item already in cart" });
+      if (itemExists.items.some((item) => item.item._id == itemid)) {
+        const currentItem = itemExists.items.find((i) => i.itemid == itemid);
+
+        if (!currentItem)
+          return res.status(404).send({ message: "Item not found in cart" });
+        let quantity = currentItem.quantity;
+        const quantityDifference = 1 - currentItem.quantity;
+        const priceDifference = item.price * quantityDifference;
+        console.log(quantity);
+        await CartModel.findOneAndUpdate(
+          { userID, "items.itemid": itemid },
+          {
+            $set: { "items.$.quantity": ++quantity },
+            $inc: { totalprice: priceDifference },
+          }
+        );
+        res.status(200).send({ message: "Item's quantity updated" });
+        return;
+      }
 
     // add/update item to cart
     const cart = await CartModel.findOneAndUpdate(
