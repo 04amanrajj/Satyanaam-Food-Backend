@@ -45,11 +45,8 @@ exports.loginUser = async (req, res) => {
 
     const query = {};
 
-    if (payLoad.email) {
-      query.email = payLoad.email;
-    } else if (payLoad.phone) {
-      query.phone = payLoad.phone;
-    }
+    if (payLoad.email) query.email = payLoad.email;
+    else if (payLoad.phone) query.phone = payLoad.phone;
 
     // check for existing user
     const user = await UserModel.findOne(query).lean();
