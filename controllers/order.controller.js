@@ -24,15 +24,28 @@ exports.getOrder = async (req, res) => {
 
 exports.newOrder = async (req, res) => {
   try {
-    const cartID = req.body.cartid;
+    const { cartID, userPhone, userName } = req.body;
     const status = "Pending";
     const userID = req.userID;
+    let cart;
 
-    const cart = await CartModel.findOne({ userID, _id: cartID });
-    if (!cart) return res.status(404).send({ message: "Cart not found" });
+    // Check if cart exists based on userID or userPhone & userName
+    if (userID) {
+      cart = await CartModel.findOne({ userID, _id: cartID });
+    } else if (userPhone && userName) {
+      cart = await CartModel.findOne({ userPhone, userName, _id: cartID });
+    } else {
+      return res
+        .status(400)
+        .send({ message: "User ID, Phone, or Name is required" });
+    }
+
+    // if (!cart) return res.status(404).send({ message: "Cart not found" });
 
     const order = new OrderModel({
       userID,
+      userPhone,
+      userName,
       items: cart.items,
       totalprice: cart.totalprice.toFixed(2),
       status,
