@@ -1,21 +1,36 @@
 const { OrderModel } = require("../models/order.model");
-const { CartModel } = require("../models/cart.model");
 
 exports.getOrder = async (req, res) => {
   try {
     const userID = req.userID;
+    const { userName, userPhone } = req.body;
     const { status } = req.query;
+
     let filter = {};
-    filter.userID = userID;
+
+    if (userID) {
+      filter.userID = userID;
+    } else if (userName || userPhone) {
+      filter.$or = [];
+      if (userName) filter.$or.push({ userName: userName });
+      if (userPhone) filter.$or.push({ userPhone: userPhone });
+    } else {
+      return res.status(400).send({
+        message:
+          "Provide either userID, userName, or userPhone to search orders",
+      });
+    }
+
     if (status) filter.status = status;
 
-    const order = await OrderModel.find(filter);
-    if (order.length == 0)
+    const orders = await OrderModel.find(filter);
+    if (orders.length === 0) {
       return res
         .status(404)
-        .send({ message: "No orders found from this user" });
+        .send({ message: "No orders found matching the criteria" });
+    }
 
-    res.status(200).send(order);
+    res.status(200).send(orders);
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });
