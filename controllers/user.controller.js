@@ -7,7 +7,7 @@ exports.userInfo = async (req, res) => {
   try {
     const userID = req.userID;
     const user = await UserModel.findById(userID);
-    if (!user) return res.status(409).send({ message: "Please login first" });
+    if (!user) return res.status(200).send({ message: "Logged in as guest" });
     res.status(200).send({ message: user });
   } catch (error) {
     console.log({ error: error.message });
@@ -90,7 +90,7 @@ exports.logoutUser = async (req, res) => {
     // save token to mongoDB
     await new BlackListToken({ token }).save();
 
-    res.status(200).send({ message: "user logged out" });
+    res.status(200).send({ message: "User logged out" });
   } catch (error) {
     console.log({ error: error.message });
     res.status(500).send({ message: error.message });
