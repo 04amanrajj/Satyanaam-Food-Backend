@@ -16,8 +16,7 @@ exports.getOrder = async (req, res) => {
       if (userPhone) filter.$or.push({ userPhone: userPhone });
     } else {
       return res.status(400).send({
-        message:
-          "Provide either userID, userName, or userPhone to search orders",
+        message: "No orders yet",
       });
     }
 
