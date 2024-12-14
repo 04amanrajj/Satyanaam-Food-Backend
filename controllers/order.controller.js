@@ -26,7 +26,7 @@ exports.getOrder = async (req, res) => {
     if (orders.length === 0) {
       return res
         .status(404)
-        .send({ message: "No orders found matching the criteria" });
+        .send({ message: "No orders yet" });
     }
 
     res.status(200).send(orders);
