@@ -1,4 +1,33 @@
 {
+    "Thali": [
+        {
+            "name": "Simple Thali",
+            "price": 244.8,
+            "category": "Thali",
+            "available": true,
+            "description": "Dal fry + daily veg + 5 chapati + papad + salad + butter milk + rice",
+            "image": "https://i.pinimg.com/736x/1d/f6/36/1df6362c66dd293cc90ef0ede65b3818.jpg",
+            "rating": 4.9
+        },
+        {
+            "name": "Special Thali",
+            "price": 331.2,
+            "category": "Thali",
+            "available": true,
+            "description": "Paneer butter masala + regular veg + butter paratha + jeera rice + dal fry + papad + salad + buttermilk",
+            "image": "https://i.pinimg.com/736x/25/0a/d8/250ad822320f0bc3c9f5fc4c64440a1b.jpg",
+            "rating": 4.7
+        },
+        {
+            "name": "Jain Thali",
+            "price": 345.6,
+            "category": "Thali",
+            "available": true,
+            "description": "Gulab jamun + dal + rice + plain chapati + sabji + achar + papad + salad",
+            "image": "https://i.pinimg.com/736x/e3/f6/5d/e3f65d4d7d849cbd04f5c8167e544ea3.jpg",
+            "rating": 4.8
+        }
+    ],
     "Salad": [
         {
             "name": "Green Salad",
@@ -570,35 +599,6 @@
             "description": "Plain yogurt served as a side dish or snack.",
             "image": "https://i.pinimg.com/736x/2a/5a/52/2a5a52e2186f0a7eccabbec3125ef6c0.jpg",
             "rating": 4.4
-        }
-    ],
-    "Thali": [
-        {
-            "name": "Simple Thali",
-            "price": 244.8,
-            "category": "Thali",
-            "available": true,
-            "description": "Dal fry + daily veg + 5 chapati + papad + salad + butter milk + rice",
-            "image": "https://i.pinimg.com/736x/1d/f6/36/1df6362c66dd293cc90ef0ede65b3818.jpg",
-            "rating": 4.9
-        },
-        {
-            "name": "Special Thali",
-            "price": 331.2,
-            "category": "Thali",
-            "available": true,
-            "description": "Paneer butter masala + regular veg + butter paratha + jeera rice + dal fry + papad + salad + buttermilk",
-            "image": "https://i.pinimg.com/736x/25/0a/d8/250ad822320f0bc3c9f5fc4c64440a1b.jpg",
-            "rating": 4.7
-        },
-        {
-            "name": "Jain Thali",
-            "price": 345.6,
-            "category": "Thali",
-            "available": true,
-            "description": "Gulab jamun + dal + rice + plain chapati + sabji + achar + papad + salad",
-            "image": "https://i.pinimg.com/736x/e3/f6/5d/e3f65d4d7d849cbd04f5c8167e544ea3.jpg",
-            "rating": 4.8
         }
     ]
 }
