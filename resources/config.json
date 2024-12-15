@@ -3,10 +3,10 @@
         "name": "SatyaNaam Food Center",
         "tagline": "Experience the Authentic Taste of Tradition",
         "address": {
-            "line1": "123 Heritage Street",
-            "city": "Udaipur",
+            "line1": "lalbagh,NH8",
+            "city": "Nathdwara",
             "state": "Rajasthan",
-            "zipcode": "313001"
+            "zipcode": "313301"
         },
         "contact": {
             "phone": "+91-9876543210",
@@ -27,6 +27,7 @@
         }
     },
     "menuCategories": [
+        "Thali",
         "Salad",
         "Papad",
         "Fast Food",
@@ -38,7 +39,6 @@
         "Gujarati",
         "Garam Garam Tawa Se",
         "Rice",
-        "Dahi & Raita",
-        "Thali"
+        "Dahi & Raita"
     ]
 }
