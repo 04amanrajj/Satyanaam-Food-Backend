@@ -10,6 +10,7 @@ const { defaultRoute } = require("./routes/default.routes");
 const { checkBlacklist } = require("./middlewares/checkBlacklist.middleware");
 const cors = require("cors");
 const { adminRoute } = require("./routes/admin.routes");
+const { logger } = require("./middlewares/userLogger.middleware");
 require("dotenv").config();
 
 const app = express();

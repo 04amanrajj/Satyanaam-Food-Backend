@@ -2,6 +2,7 @@
 // login
 // signup
 
+const { logger } = require("../middlewares/userLogger.middleware");
 const { MenuModel } = require("../models/menu.model");
 const { OrderModel } = require("../models/order.model");
 const { UserModel } = require("../models/user.model");

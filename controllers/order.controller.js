@@ -1,3 +1,4 @@
+const { logger } = require("../middlewares/userLogger.middleware");
 const { OrderModel } = require("../models/order.model");
 
 exports.getOrder = async (req, res) => {

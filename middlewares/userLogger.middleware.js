@@ -15,12 +15,29 @@ const createLevelTransport = (level, filename) =>
     ),
   });
 
-// Create logger instance with level-specific transports
+// Create logger instance with file and console transports
 const logger = winston.createLogger({
+  format: winston.format.combine(
+    winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+    winston.format.printf(({ level, message, timestamp }) => {
+      return `[${timestamp}] ${level.toUpperCase()}: ${message}`;
+    })
+  ),
   transports: [
+    // File transports for each level
     createLevelTransport("info", "info.log"),
     createLevelTransport("warn", "warn.log"),
     createLevelTransport("error", "error.log"),
+
+    // Console transport for Render logs
+    new winston.transports.Console({
+      format: winston.format.combine(
+        winston.format.colorize(), // Adds colors for easier readability
+        winston.format.printf(({ level, message, timestamp }) => {
+          return `[${timestamp}] ${level.toUpperCase()}: ${message}`;
+        })
+      ),
+    }),
   ],
 });
 
