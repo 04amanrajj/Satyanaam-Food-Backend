@@ -28,8 +28,10 @@ exports.resetMenu = async (req, res) => {
       }
     }
     const newItems = await MenuModel.find();
+    logger.warn(`performed menu reset`);
     res.status(200).send({ message: "menu reset: ok", data: newItems });
   } catch (error) {
+    logger.error(`Error reseting menu: ${error.message}`);
     console.log(error.message);
     res.status(403).send({ message: error.message });
   }
@@ -49,9 +51,10 @@ exports.addMenuItem = async (req, res) => {
 
     const newDish = new MenuModel(payLoad);
     await newDish.save();
-
+    logger.warn(`Added ${payLoad.name}`);
     res.status(200).send({ message: "new dish added" });
   } catch (error) {
+    logger.error(`Error adding item: ${error.message}`);
     console.log(error.message);
     res.status(500).send({ message: error.message });
   }
@@ -68,11 +71,11 @@ exports.updateMenuItem = async (req, res) => {
     // check item
     const dish = await MenuModel.findOne({ _id });
     if (!dish) return res.status(404).send({ message: "dish not found" });
-
+    logger.warn(`updated ${dish.name}`);
     await MenuModel.findOneAndUpdate({ _id }, payload);
-
     res.status(200).send({ message: "dish updated" });
   } catch (error) {
+    logger.error(`Error updating item: ${error.message}`);
     console.log(error.message);
     res.status(500).send({ message: error.message });
   }
@@ -88,10 +91,11 @@ exports.deleteMenuItem = async (req, res) => {
     // check & delete item
     const dish = await MenuModel.findOne({ _id });
     if (!dish) return res.status(404).send({ message: "dish not found" });
+    logger.warn(`deleted ${dish.name}`);
     await MenuModel.findByIdAndDelete({ _id });
-
     res.status(200).send({ message: "dish deleted" });
   } catch (error) {
+    logger.error(`Error deleting item: ${error.message}`);
     console.log(error.message);
     res.status(500).send({ message: error.message });
   }
@@ -102,7 +106,6 @@ exports.getOrders = async (req, res) => {
     if (req.role !== "admin")
       return res.status(403).send({ message: "You are not authorized" });
 
-    const userID = req.userID;
     const { status } = req.query;
     let filter = {};
     if (status) filter.status = status;
@@ -110,9 +113,10 @@ exports.getOrders = async (req, res) => {
     const order = await OrderModel.find(filter);
     if (order.length == 0)
       return res.status(404).send({ message: "No orders found" });
-
+    logger.warn(`${req.role} looked for all orders`);
     res.status(200).send(order);
   } catch (error) {
+    logger.error(`Error showing orders (admin): ${error.message}`);
     console.log(error.message);
     res.status(500).send({ message: error.message });
   }
@@ -132,9 +136,10 @@ exports.updateOrder = async (req, res) => {
     if (!order) return res.status(404).send({ message: "Order not found" });
 
     await OrderModel.findOneAndUpdate({ _id: orderID }, { status });
-
+    logger.warn(`order updated ${orderID}`);
     res.status(200).send("order updated");
   } catch (error) {
+    logger.error(`Error updating order: ${error.message}`);
     console.log(error.message);
     res.status(500).send({ message: error.message });
   }
@@ -147,8 +152,10 @@ exports.users = async (req, res) => {
     if (req.body.userid) param._id = req.body.userid;
     const users = await UserModel.find(param);
     if (!users) return res.status(404).send({ message: "No user found" });
+    logger.warn(`${req.role} looked for a user ${param._id}`);
     res.status(200).send({ message: users });
   } catch (error) {
+    logger.error(`Error showing user (admin): ${error.message}`);
     console.log({ error: error.message });
     res.status(500).send({ error: error.message });
   }

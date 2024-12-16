@@ -39,6 +39,7 @@ app.listen(port, async () => {
     await dbconnection;
     console.log("connected to DB");
   } catch (error) {
+    logger.error(`Server Error: ${error.message}`);
     console.log("failed to connect DB:", error.message);
   }
   console.log(`server running at http://localhost:${port}`);

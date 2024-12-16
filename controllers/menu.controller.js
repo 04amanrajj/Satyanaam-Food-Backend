@@ -1,3 +1,4 @@
+const { logger } = require("../middlewares/userLogger.middleware");
 const { MenuModel } = require("../models/menu.model");
 
 exports.getMenuItem = async (req, res) => {
@@ -41,7 +42,7 @@ exports.getMenuItem = async (req, res) => {
 
     const totalitems = await MenuModel.countDocuments(filter);
     const totalPages = Math.ceil(totalitems / limit);
-
+    logger.info(`Some one visited menu.`);
     res.status(200).send({
       data: menuitems,
       metadata: {
@@ -52,6 +53,7 @@ exports.getMenuItem = async (req, res) => {
       },
     });
   } catch (error) {
+    logger.error(`Error showing menu: ${error.message}`);
     console.log(error.message);
     res.status(500).send({ message: error.message });
   }
@@ -63,6 +65,7 @@ exports.getItemById = async (req, res) => {
     const item = await MenuModel.find({ _id: itemid });
     res.status(200).send({ data: item });
   } catch (error) {
+    logger.error(`Error: ${error.message}`);
     console.log(error.message);
     res.status(500).send({ message: error.message });
   }

@@ -24,13 +24,12 @@ exports.getOrder = async (req, res) => {
 
     const orders = await OrderModel.find(filter);
     if (orders.length === 0) {
-      return res
-        .status(404)
-        .send({ message: "No orders yet" });
+      return res.status(404).send({ message: "No orders yet" });
     }
-
+    logger.info(`${userName || userID} (${userPhone}) looking for orders.`);
     res.status(200).send(orders);
   } catch (error) {
+    logger.error(`Error showing orders: ${error.message}`);
     console.log(error.message);
     res.status(500).send({ message: error.message });
   }
@@ -56,9 +55,10 @@ exports.newOrder = async (req, res) => {
 
     const order = new OrderModel(confirmOrder);
     await order.save();
-
+    logger.info(`${userName} (${userPhone}) Placed new order.`);
     res.status(200).send({ data: order, message: "Order placed" });
   } catch (error) {
+    logger.error(`Error processing order: ${error.message}`);
     console.error("Error processing order:", error.message);
     res.status(500).send({ message: error.message });
   }

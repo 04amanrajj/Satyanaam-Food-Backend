@@ -2,14 +2,17 @@ const { UserModel } = require("../models/user.model");
 const { BlackListToken } = require("../models/blacklistTokens.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { logger } = require("../middlewares/userLogger.middleware");
 
 exports.userInfo = async (req, res) => {
   try {
     const userID = req.userID;
     const user = await UserModel.findById(userID);
     if (!user) return res.status(200).send({ message: "Logged in as guest" });
+    logger.info(`${user.name} (${user.email}) visited profile.`);
     res.status(200).send({ message: user });
   } catch (error) {
+    logger.error(`Error sending user details: ${error.message}`);
     console.log({ error: error.message });
     res.status(500).send({ error: error.message });
   }
@@ -31,9 +34,14 @@ exports.registerNewUser = async (req, res) => {
     payLoad.password = hashPass;
     const newUser = new UserModel(payLoad);
     await newUser.save();
-
+    logger.info(
+      `${user.name || payLoad.name} (${
+        user.email || payLoad.email
+      }) registered.`
+    );
     res.status(200).send({ message: "User registered" });
   } catch (error) {
+    logger.error(`Error creating new user: ${error.message}`);
     console.log({ error: error.message });
     res.status(500).send({ error: error.message });
   }
@@ -67,8 +75,10 @@ exports.loginUser = async (req, res) => {
       { expiresIn: Number(process.env.JWT_EXPIRES_IN) || "1h" }
     );
     delete user.password;
+    logger.info(`${user.name || user.email || payLoad.email} logged in.`);
     res.status(200).send({ message: "User logged-in", token, user });
   } catch (error) {
+    logger.error(`Error login user: ${error.message}`);
     console.log({ error: error.message });
     res.status(500).send({ message: error.message });
   }
