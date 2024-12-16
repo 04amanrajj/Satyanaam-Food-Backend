@@ -1,6 +1,5 @@
 const express = require("express");
 const Router = require("express");
-const { limiter } = require("../middlewares/rateLimit.middleware");
 const { authenticate } = require("../middlewares/authorization.middleware");
 const userRoute = Router();
 const {
@@ -12,7 +11,6 @@ const {
 require("dotenv").config();
 
 userRoute.use(express.json());
-userRoute.use(limiter);
 
 userRoute.get("/",authenticate,userInfo)
 

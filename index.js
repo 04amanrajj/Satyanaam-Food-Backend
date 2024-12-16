@@ -8,14 +8,18 @@ const { cartRoute } = require("./routes/cart.routes");
 const { orderRoute } = require("./routes/order.routes");
 const { defaultRoute } = require("./routes/default.routes");
 const { checkBlacklist } = require("./middlewares/checkBlacklist.middleware");
-const cors = require("cors");
 const { adminRoute } = require("./routes/admin.routes");
 const { logger } = require("./middlewares/userLogger.middleware");
+const { limiter } = require("./middlewares/rateLimit.middleware");
+const cors = require("cors");
+const port = process.env.PORT || 4500;
 require("dotenv").config();
 
 const app = express();
 app.use(cors());
-const port = process.env.PORT || 4500;
+
+app.set("trust proxy", 1); // Use '1' for one proxy, or 'true' to trust all proxies
+app.use(limiter);
 
 // public routes
 app.use("/", defaultRoute);
