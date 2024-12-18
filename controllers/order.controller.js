@@ -1,9 +1,11 @@
 const { logger } = require("../middlewares/userLogger.middleware");
 const { OrderModel } = require("../models/order.model");
+const { UserModel } = require("../models/user.model");
 
 exports.getOrder = async (req, res) => {
   try {
     const userID = req.userID;
+    const user = await UserModel.findById(userID);
     const { userName, userPhone } = req.body;
     const { status } = req.query;
 
@@ -27,7 +29,7 @@ exports.getOrder = async (req, res) => {
     if (orders.length === 0) {
       return res.status(404).send({ message: "No orders yet" });
     }
-    logger.info(`${userName || userID} (${userPhone}) looking for orders.`);
+    logger.info(`${userName || user.name} (${userPhone||user.phone}) looking for orders.`);
     res.status(200).send(orders);
   } catch (error) {
     logger.error(`Error showing orders: ${error.message}`);

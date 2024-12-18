@@ -1,5 +1,11 @@
 const winston = require("winston");
 const path = require("path");
+const { Log } = require("../models/logger.modal");
+
+const saveLogToDB = async ({ level, message, timestamp }) => {
+  const logEntry = new Log({ level, message, timestamp });
+  await logEntry.save();
+};
 
 // Helper function to create level-specific transports
 const createLevelTransport = (level, filename) =>
@@ -9,6 +15,7 @@ const createLevelTransport = (level, filename) =>
     format: winston.format.combine(
       winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
       winston.format.printf(({ level, message, timestamp }) => {
+        saveLogToDB({ level, level, message, timestamp });
         return `[${timestamp}] ${level.toUpperCase()}: ${message}`;
       }),
       winston.format((info) => (info.level === level ? info : false))() // Filter logs for specific level

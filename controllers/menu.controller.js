@@ -1,5 +1,6 @@
 const { logger } = require("../middlewares/userLogger.middleware");
 const { MenuModel } = require("../models/menu.model");
+const { UserModel } = require("../models/user.model");
 
 exports.getMenuItem = async (req, res) => {
   try {
@@ -40,9 +41,14 @@ exports.getMenuItem = async (req, res) => {
       .limit(limit)
       .sort(sortOptions);
 
+    let user = { name: "Some one" };
+    if (req.userID) {
+      user = await UserModel.findById(req.userID);
+    }
+
     const totalitems = await MenuModel.countDocuments(filter);
     const totalPages = Math.ceil(totalitems / limit);
-    logger.info(`Some one visited menu.`);
+    logger.info(`${user.name || "Some one"} visited menu.`);
     res.status(200).send({
       data: menuitems,
       metadata: {
