@@ -29,7 +29,7 @@ exports.getOrder = async (req, res) => {
     if (orders.length === 0) {
       return res.status(404).send({ message: "No orders yet" });
     }
-    logger.info(`${userName || user.name} (${userPhone||user.phone}) looking for orders.`);
+    logger.info(`${ user.name||userName} (${userPhone||user.phone}) looking for orders.`);
     res.status(200).send(orders);
   } catch (error) {
     logger.error(`Error showing orders: ${error.message}`);
