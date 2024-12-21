@@ -2,7 +2,7 @@
     "Thali": [
         {
             "name": "Simple Thali",
-            "price": 150,
+            "price": 187.5,
             "category": "Thali",
             "available": true,
             "description": "Dal fry + daily veg + 5 chapati + papad + salad + butter milk + rice",
@@ -11,7 +11,7 @@
         },
         {
             "name": "Special Thali",
-            "price": 180,
+            "price": 225,
             "category": "Thali",
             "available": true,
             "description": "Paneer butter masala + regular veg + butter paratha + jeera rice + dal fry + papad + salad + buttermilk",
@@ -20,7 +20,7 @@
         },
         {
             "name": "couple Thali",
-            "price": 200,
+            "price": 325,
             "category": "Thali",
             "available": true,
             "description": "Dal fry + daily veg + 5 chapati + papad + salad + butter milk + rice",
@@ -29,7 +29,7 @@
         },
         {
             "name": "Jain Thali",
-            "price": 260,
+            "price": 250,
             "category": "Thali",
             "available": true,
             "description": "Gulab jamun + dal + rice + plain chapati + sabji + achar + papad + salad",
@@ -40,7 +40,7 @@
     "Salad": [
         {
             "name": "Green Salad",
-            "price": 40,
+            "price": 50,
             "category": "Salad",
             "available": true,
             "description": "A fresh salad made with green vegetables.",
@@ -49,7 +49,7 @@
         },
         {
             "name": "Kakdi Salad",
-            "price": 50,
+            "price": 62.5,
             "category": "Salad",
             "available": false,
             "description": "A refreshing cucumber salad.",
@@ -58,16 +58,16 @@
         },
         {
             "name": "Tomato Salad",
-            "price": 50,
+            "price": 62.5,
             "category": "Salad",
             "available": true,
             "description": "Freshly chopped tomatoes with seasoning.",
-            "image": "https://i.pinimg.com/736x/98/5c/d7/985cd79f6e4363db0ab823741f1e8480.jpg",
+            "image": "https://i.pinimg.com/736x/7f/8c/49/7f8c49a67e92f0d80c3dfdfe7b888166.jpg",
             "rating": 4.8
         },
         {
             "name": "kachumber Salad",
-            "price": 60,
+            "price": 75,
             "category": "Salad",
             "available": true,
             "description": "A crisp and refreshing cucumber salad.",
@@ -78,7 +78,7 @@
     "Papad": [
         {
             "name": "Roasted Papad",
-            "price": 15,
+            "price": 18.75,
             "category": "Papad",
             "available": true,
             "description": "Crispy roasted papad.",
@@ -87,7 +87,7 @@
         },
         {
             "name": "Masala Papad",
-            "price": 25,
+            "price": 31.25,
             "category": "Papad",
             "available": true,
             "description": "Papad topped with masala seasoning.",
@@ -98,7 +98,7 @@
     "Fast_Food": [
         {
             "name": "Red Pasta Regular Gravy",
-            "price": 120,
+            "price": 150,
             "category": "Fast Food",
             "available": true,
             "description": "Pasta cooked with spicy red sauce.",
@@ -107,7 +107,7 @@
         },
         {
             "name": "Veg Chowmein",
-            "price": 130,
+            "price": 162.5,
             "category": "Fast Food",
             "available": true,
             "description": "Stir-fried noodles with vegetables.",
@@ -116,7 +116,7 @@
         },
         {
             "name": "Veg Manchurian",
-            "price": 150,
+            "price": 187.5,
             "category": "Fast Food",
             "available": true,
             "description": "Crispy fried vegetable balls in spicy sauce.",
@@ -125,7 +125,7 @@
         },
         {
             "name": "Paneer Chilli",
-            "price": 210,
+            "price": 262.5,
             "category": "Fast Food",
             "available": true,
             "description": "Fried paneer cubes in spicy sauce.",
@@ -136,7 +136,7 @@
     "Rajasthani_Special": [
         {
             "name": "Black Mix Daal Fry",
-            "price": 140,
+            "price": 175,
             "category": "Rajasthani Special",
             "available": true,
             "description": "A mix of daals cooked with spices.",
@@ -145,7 +145,7 @@
         },
         {
             "name": "Daal Baati",
-            "price": 180,
+            "price": 225,
             "category": "Rajasthani Special",
             "available": true,
             "description": "Traditional Rajasthani dish of baati with daal.",
@@ -154,7 +154,7 @@
         },
         {
             "name": "Baati (one piece)",
-            "price": 20,
+            "price": 25,
             "category": "Rajasthani Special",
             "available": true,
             "description": "A single piece of baati, a Rajasthani bread.",
@@ -165,7 +165,7 @@
     "Paneer_Ka_Swad": [
         {
             "name": "Paneer Butter Masala",
-            "price": 180,
+            "price": 225,
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Paneer cooked in rich butter masala gravy.",
@@ -174,7 +174,7 @@
         },
         {
             "name": "Paneer Bhurji",
-            "price": 190,
+            "price": 237.5,
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Scrambled paneer with spices.",
@@ -183,7 +183,7 @@
         },
         {
             "name": "Palak Paneer",
-            "price": 170,
+            "price": 212.5,
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Paneer cooked with spinach in a spicy gravy.",
@@ -192,7 +192,7 @@
         },
         {
             "name": "Shahi Paneer",
-            "price": 190,
+            "price": 237.5,
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Paneer cooked in a creamy royal gravy.",
@@ -201,7 +201,7 @@
         },
         {
             "name": "Matar Paneer",
-            "price": 170,
+            "price": 212.5,
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Cottage cheese cooked with peas in a flavorful gravy.",
@@ -210,7 +210,7 @@
         },
         {
             "name": "Kadai Paneer",
-            "price": 190,
+            "price": 237.5,
             "category": "Paneer Ka Swad",
             "available": true,
             "description": "Paneer cooked with bell peppers and spices.",
@@ -221,7 +221,7 @@
     "Dal_Tadka": [
         {
             "name": "Butter Dal Fry",
-            "price": 130,
+            "price": 162.5,
             "category": "Dal Tadka",
             "available": true,
             "description": "Dal cooked with butter and spices.",
@@ -230,7 +230,7 @@
         },
         {
             "name": "Dal Tadka Spicy",
-            "price": 130,
+            "price": 162.5,
             "category": "Dal Tadka",
             "available": true,
             "description": "Spicy dal cooked with garlic and cumin.",
@@ -239,7 +239,7 @@
         },
         {
             "name": "Dal Fry",
-            "price": 120,
+            "price": 150,
             "category": "Dal Tadka",
             "available": true,
             "description": "Dal cooked with mild spices.",
@@ -248,7 +248,7 @@
         },
         {
             "name": "Dal Palak",
-            "price": 120,
+            "price": 150,
             "category": "Dal Tadka",
             "available": true,
             "description": "Dal cooked with spinach.",
@@ -257,7 +257,7 @@
         },
         {
             "name": "Gujarati Dal",
-            "price": 120,
+            "price": 150,
             "category": "Dal Tadka",
             "available": true,
             "description": "Traditional Gujarati style dal with spices.",
@@ -268,7 +268,7 @@
     "Sabzio_Ka_Khazana": [
         {
             "name": "Kaju Curry",
-            "price": 220,
+            "price": 275,
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Curry made with cashew nuts in a rich gravy.",
@@ -277,7 +277,7 @@
         },
         {
             "name": "Dum Aloo",
-            "price": 180,
+            "price": 225,
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Potatoes cooked in a rich and spicy gravy.",
@@ -286,7 +286,7 @@
         },
         {
             "name": "Chole Masala",
-            "price": 160,
+            "price": 200,
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Chickpeas cooked in spicy masala gravy.",
@@ -295,7 +295,7 @@
         },
         {
             "name": "Green Peas Masala",
-            "price": 180,
+            "price": 225,
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Green peas cooked in a spicy masala gravy.",
@@ -304,7 +304,7 @@
         },
         {
             "name": "Malai Methi Matar",
-            "price": 180,
+            "price": 225,
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Methi and peas cooked in a creamy gravy.",
@@ -313,7 +313,7 @@
         },
         {
             "name": "Bhindi Masala",
-            "price": 120,
+            "price": 150,
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Okra cooked in a spicy masala gravy.",
@@ -322,7 +322,7 @@
         },
         {
             "name": "Aloo Matar",
-            "price": 120,
+            "price": 150,
             "category": "Sabzio Ka Khazana",
             "available": true,
             "description": "Potato and peas cooked in a mild gravy.",
@@ -333,7 +333,7 @@
     "Veg_and_Kofta": [
         {
             "name": "Mix Veg",
-            "price": 150,
+            "price": 187.5,
             "category": "Veg & Kofta",
             "available": true,
             "description": "A mix of vegetables cooked with spices.",
@@ -342,7 +342,7 @@
         },
         {
             "name": "Veg Jaipuri",
-            "price": 180,
+            "price": 225,
             "category": "Veg & Kofta",
             "available": true,
             "description": "Vegetables cooked in a spicy Jaipur style gravy.",
@@ -351,7 +351,7 @@
         },
         {
             "name": "Veg Kolhapuri",
-            "price": 190,
+            "price": 237.5,
             "category": "Veg & Kofta",
             "available": true,
             "description": "A spicy and flavorful vegetable dish from Kolhapur.",
@@ -360,7 +360,7 @@
         },
         {
             "name": "Malai Kofta",
-            "price": 180,
+            "price": 225,
             "category": "Veg & Kofta",
             "available": true,
             "description": "Soft koftas in a creamy gravy.",
@@ -369,7 +369,7 @@
         },
         {
             "name": "Kadai Kofta",
-            "price": 190,
+            "price": 237.5,
             "category": "Veg & Kofta",
             "available": true,
             "description": "Koftas cooked in a rich and spicy gravy.",
@@ -380,7 +380,7 @@
     "Gujarati": [
         {
             "name": "Kadhi",
-            "price": 80,
+            "price": 100,
             "category": "Gujarati",
             "available": true,
             "description": "A traditional yogurt-based curry.",
@@ -389,7 +389,7 @@
         },
         {
             "name": "Khichdi",
-            "price": 100,
+            "price": 125,
             "category": "Gujarati",
             "available": true,
             "description": "A mild, nutritious rice and lentil dish.",
@@ -398,7 +398,7 @@
         },
         {
             "name": "Masala Khichdi",
-            "price": 120,
+            "price": 150,
             "category": "Gujarati",
             "available": true,
             "description": "Spicy rice and lentil dish with vegetables.",
@@ -407,7 +407,7 @@
         },
         {
             "name": "Sev Tomato",
-            "price": 120,
+            "price": 150,
             "category": "Gujarati",
             "available": true,
             "description": "A spicy and tangy tomato curry topped with sev.",
@@ -416,7 +416,7 @@
         },
         {
             "name": "Vatana Batata",
-            "price": 120,
+            "price": 150,
             "category": "Gujarati",
             "available": true,
             "description": "Green peas and potatoes cooked in a mild curry.",
@@ -425,7 +425,7 @@
         },
         {
             "name": "Baingan Bharta",
-            "price": 130,
+            "price": 162.5,
             "category": "Gujarati",
             "available": true,
             "description": "Smoked eggplant mashed and cooked with spices.",
@@ -434,7 +434,7 @@
         },
         {
             "name": "Flower Matar",
-            "price": 120,
+            "price": 150,
             "category": "Gujarati",
             "available": true,
             "description": "Cauliflower and peas cooked in a mild gravy.",
@@ -443,7 +443,7 @@
         },
         {
             "name": "Gobi Matar",
-            "price": 110,
+            "price": 137.5,
             "category": "Gujarati",
             "available": true,
             "description": "Cauliflower and peas cooked in a spicy gravy.",
@@ -452,7 +452,7 @@
         },
         {
             "name": "Palak Tomato",
-            "price": 120,
+            "price": 150,
             "category": "Gujarati",
             "available": true,
             "description": "Spinach and tomatoes cooked with spices.",
@@ -461,7 +461,7 @@
         },
         {
             "name": "Ringana Batata",
-            "price": 120,
+            "price": 150,
             "category": "Gujarati",
             "available": true,
             "description": "Eggplant and potatoes cooked in a mild curry.",
@@ -470,7 +470,7 @@
         },
         {
             "name": "Batata Ni Sukhi Bhaji",
-            "price": 100,
+            "price": 125,
             "category": "Gujarati",
             "available": true,
             "description": "Dry potato curry with traditional Gujarati spices.",
@@ -481,7 +481,7 @@
     "Garam_Garam_Tawa_Se": [
         {
             "name": "Plain Chapati",
-            "price": 10,
+            "price": 12.5,
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Freshly made plain chapati.",
@@ -490,7 +490,7 @@
         },
         {
             "name": "Butter Chapati",
-            "price": 12,
+            "price": 15,
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Chapati brushed with butter.",
@@ -499,7 +499,7 @@
         },
         {
             "name": "Plain Paratha",
-            "price": 15,
+            "price": 18.75,
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Soft and flaky paratha.",
@@ -508,7 +508,7 @@
         },
         {
             "name": "Butter Paratha",
-            "price": 25,
+            "price": 31.25,
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Flaky paratha brushed with butter.",
@@ -517,7 +517,7 @@
         },
         {
             "name": "Bhakri",
-            "price": 15,
+            "price": 18.75,
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Traditional crispy flatbread.",
@@ -526,7 +526,7 @@
         },
         {
             "name": "Bajre na Rotala",
-            "price": 15,
+            "price": 18.75,
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Rustic millet flatbread.",
@@ -535,7 +535,7 @@
         },
         {
             "name": "Multi Mix Grain Roti",
-            "price": 20,
+            "price": 25,
             "category": "Garam Garam Tawa Se",
             "available": true,
             "description": "Healthy flatbread from mixed grains.",
@@ -546,7 +546,7 @@
     "Rice": [
         {
             "name": "Plain Rice",
-            "price": 80,
+            "price": 100,
             "category": "Rice",
             "available": true,
             "description": "Simple steamed rice.",
@@ -555,7 +555,7 @@
         },
         {
             "name": "Jeera Rice",
-            "price": 90,
+            "price": 112.5,
             "category": "Rice",
             "available": true,
             "description": "Rice cooked with cumin seeds.",
@@ -564,7 +564,7 @@
         },
         {
             "name": "Veg Pulav",
-            "price": 110,
+            "price": 137.5,
             "category": "Rice",
             "available": true,
             "description": "Rice cooked with vegetables and mild spices.",
@@ -573,7 +573,7 @@
         },
         {
             "name": "Veg Biryani",
-            "price": 120,
+            "price": 150,
             "category": "Rice",
             "available": true,
             "description": "Spicy vegetable biryani made with basmati rice.",
@@ -584,7 +584,7 @@
     "Dahi_And_Raita": [
         {
             "name": "Veg Raita",
-            "price": 80,
+            "price": 100,
             "category": "Dahi & Raita",
             "available": true,
             "description": "A yogurt-based side dish with mixed vegetables.",
@@ -593,7 +593,7 @@
         },
         {
             "name": "Onion Raita",
-            "price": 90,
+            "price": 112.5,
             "category": "Dahi & Raita",
             "available": true,
             "description": "Yogurt mixed with finely chopped onions and spices.",
@@ -602,7 +602,7 @@
         },
         {
             "name": "Boondi Raita",
-            "price": 90,
+            "price": 112.5,
             "category": "Dahi & Raita",
             "available": true,
             "description": "Crispy boondi mixed with yogurt and seasoned with spices.",
@@ -611,7 +611,7 @@
         },
         {
             "name": "Butter Milk",
-            "price": 10,
+            "price": 12.5,
             "category": "Dahi & Raita",
             "available": true,
             "description": "A refreshing drink made from yogurt, water, and spices.",
@@ -620,7 +620,7 @@
         },
         {
             "name": "Dahi",
-            "price": 30,
+            "price": 37.5,
             "category": "Dahi & Raita",
             "available": true,
             "description": "Plain yogurt served as a side dish or snack.",
@@ -629,7 +629,7 @@
         },
         {
             "name": "Dahi Fry",
-            "price": 90,
+            "price": 112.5,
             "category": "Dahi & Raita",
             "available": true,
             "description": "Tangy yogurt curry with spiced tempering.",
