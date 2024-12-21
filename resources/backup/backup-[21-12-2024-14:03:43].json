@@ -1,0 +1,13 @@
+[
+  {
+    "_id": "67667d52014b2a5e4816ad0e",
+    "name": "Simple Thali",
+    "description": "Dal fry + daily veg + 5 chapati + papad + salad + butter milk + rice",
+    "price": 150,
+    "available": true,
+    "rating": 4.9,
+    "category": "Thali",
+    "image": "https://i.pinimg.com/736x/1d/f6/36/1df6362c66dd293cc90ef0ede65b3818.jpg",
+    "__v": 0
+  }
+]

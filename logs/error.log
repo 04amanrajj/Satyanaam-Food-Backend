@@ -3,3 +3,7 @@
 [2024-12-18 23:40:06] ERROR: Error showing menu: Operation `menu_items.find()` buffering timed out after 10000ms
 [2024-12-18 23:51:15] ERROR: Server Error: connect ETIMEDOUT 13.201.152.164:27017, connect ENETUNREACH 64:ff9b::dc9:98a4:27017 - Local (:::0)
 [2024-12-18 23:53:35] ERROR: Server Error: connect ETIMEDOUT 13.201.152.164:27017, connect ENETUNREACH 64:ff9b::dc9:98a4:27017 - Local (:::0)
+[2024-12-21 13:29:05] ERROR: Server Error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+[2024-12-21 13:33:09] ERROR: Server Error: connect ECONNREFUSED 127.0.0.1:27017
+[2024-12-21 13:34:53] ERROR: Error reseting menu: ENOENT: no such file or directory, open '/home/amanrajj/Desktop/Projects/Satyanaam-Food-Backend/resources/backups/backup-[21-12-2024].json'
+[2024-12-21 13:45:19] ERROR: Error reseting menu: currentMenu is not defined
