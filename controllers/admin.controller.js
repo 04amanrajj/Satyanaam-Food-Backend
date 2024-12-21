@@ -15,28 +15,29 @@ exports.resetMenu = async (req, res) => {
     if (req.role !== "admin")
       return res.status(403).send({ message: "You are not authorized" });
 
+    // creating backup stops reseting menu
     // Create timestamped backup filename
-    const date = new Date();
-    const timestamp = `${String(date.getDate()).padStart(2, "0")}-${String(
-      date.getMonth() + 1
-    ).padStart(2, "0")}-${date.getFullYear()}-${String(
-      date.getHours()
-    ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(
-      date.getSeconds()
-    ).padStart(2, "0")}`;
-    const backupFilename = `backup-[${timestamp}].json`;
+    // const date = new Date();
+    // const timestamp = `${String(date.getDate()).padStart(2, "0")}-${String(
+    //   date.getMonth() + 1
+    // ).padStart(2, "0")}-${date.getFullYear()}-${String(
+    //   date.getHours()
+    // ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(
+    //   date.getSeconds()
+    // ).padStart(2, "0")}`;
+    // const backupFilename = `backup-[${timestamp}].json`;
 
-    let backupPath = path.join(
-      __dirname,
-      "../resources/backup",
-      backupFilename
-    );
+    // let backupPath = path.join(
+    //   __dirname,
+    //   "../resources/backup",
+    //   backupFilename
+    // );
 
-    const currentMenu = await MenuModel.find();
+    // const currentMenu = await MenuModel.find();
 
-    // Write the backup file
-    await fs.writeFile(backupPath, JSON.stringify(currentMenu, null, 2));
-    logger.info(`Menu backup created successfully: ${backupFilename}`);
+    // // Write the backup file
+    // await fs.writeFile(backupPath, JSON.stringify(currentMenu, null, 2));
+    // logger.info(`Menu backup created successfully: ${backupFilename}`);
 
     // reset all items
     await MenuModel.collection.drop();
@@ -175,7 +176,7 @@ exports.users = async (req, res) => {
     if (req.body.userid) param._id = req.body.userid;
     const users = await UserModel.find(param);
     if (!users) return res.status(404).send({ message: "No user found" });
-    logger.warn(`${req.role} looked for a user ${param._id}`);
+    logger.warn(`${req.role} looked for a user ${param._id||""}`);
     res.status(200).send({ message: users });
   } catch (error) {
     logger.error(`Error showing user (admin): ${error.message}`);
