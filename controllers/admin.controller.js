@@ -1,6 +1,8 @@
 // reset
 // login
 // signup
+const fs = require("fs").promises;
+const path = require("path");
 
 const { logger } = require("../middlewares/userLogger.middleware");
 const { MenuModel } = require("../models/menu.model");
@@ -13,8 +15,28 @@ exports.resetMenu = async (req, res) => {
     if (req.role !== "admin")
       return res.status(403).send({ message: "You are not authorized" });
 
-    // create backup
-    // pending...
+    // Create timestamped backup filename
+    const date = new Date();
+    const timestamp = `${String(date.getDate()).padStart(2, "0")}-${String(
+      date.getMonth() + 1
+    ).padStart(2, "0")}-${date.getFullYear()}-${String(
+      date.getHours()
+    ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(
+      date.getSeconds()
+    ).padStart(2, "0")}`;
+    const backupFilename = `backup-[${timestamp}].json`;
+
+    let backupPath = path.join(
+      __dirname,
+      "../resources/backup",
+      backupFilename
+    );
+
+    const currentMenu = await MenuModel.find();
+
+    // Write the backup file
+    await fs.writeFile(backupPath, JSON.stringify(currentMenu, null, 2));
+    logger.info(`Menu backup created successfully: ${backupFilename}`);
 
     // reset all items
     await MenuModel.collection.drop();
@@ -32,8 +54,8 @@ exports.resetMenu = async (req, res) => {
     logger.warn(`performed menu reset`);
     res.status(200).send({ message: "menu reset: ok", data: newItems });
   } catch (error) {
-    logger.error(`Error reseting menu: ${error.message}`);
-    console.log(error.message);
+    logger.error(`Error resetting menu: ${error.stack || error.message}`);
+    console.log(error.stack || error.message);
     res.status(403).send({ message: error.message });
   }
 };
