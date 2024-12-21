@@ -20,6 +20,7 @@
     "express-winston": "^4.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.1",
+    "nodemailer": "^6.9.16",
     "nodemon": "^3.1.7",
     "winston-mongodb": "^6.0.0"
   }
