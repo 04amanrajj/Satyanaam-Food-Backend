@@ -194,7 +194,7 @@ function generateOrderHTML(order) {
               restaurantDetails.contact.email
             }">${restaurantDetails.contact.email}</a></p>
             <p><strong>Operating Hours:</strong></p>
-            <ul>
+            <ul style="display: block;">
               <li><strong>Weekdays:</strong> ${
                 restaurantDetails.operatingHours.mondayToFriday
               }</li>
