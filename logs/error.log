@@ -7,3 +7,10 @@
 [2024-12-21 13:33:09] ERROR: Server Error: connect ECONNREFUSED 127.0.0.1:27017
 [2024-12-21 13:34:53] ERROR: Error reseting menu: ENOENT: no such file or directory, open '/home/amanrajj/Desktop/Projects/Satyanaam-Food-Backend/resources/backups/backup-[21-12-2024].json'
 [2024-12-21 13:45:19] ERROR: Error reseting menu: currentMenu is not defined
+[2024-12-22 00:15:43] ERROR: Error processing order: order validation failed: userPhone: Cast to Number failed for value "+1 (903) 388-5047" (type string) at path "userPhone"
+[2024-12-22 00:23:43] ERROR: Error processing order: Cannot read properties of undefined (reading 'toFixed')
+[2024-12-22 00:37:31] ERROR: Error processing order: Cannot read properties of undefined (reading 'toFixed')
+[2024-12-22 00:44:27] ERROR: Server Error: connect ETIMEDOUT 13.127.203.250:27017, connect ENETUNREACH 64:ff9b::d7f:cbfa:27017 - Local (:::0)
+[2024-12-22 01:11:42] ERROR: Error processing order: Cannot read properties of undefined (reading 'restaurantDetails')
+[2024-12-22 01:11:55] ERROR: Error processing order: Cannot read properties of undefined (reading 'restaurantDetails')
+[2024-12-22 01:12:53] ERROR: Error processing order: Cannot read properties of undefined (reading 'restaurantDetails')

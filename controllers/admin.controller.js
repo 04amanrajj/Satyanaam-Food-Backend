@@ -176,7 +176,6 @@ exports.users = async (req, res) => {
     if (req.body.userid) param._id = req.body.userid;
     const users = await UserModel.find(param);
     if (!users) return res.status(404).send({ message: "No user found" });
-    logger.warn(`${req.role} looked for a user ${param._id||""}`);
     res.status(200).send({ message: users });
   } catch (error) {
     logger.error(`Error showing user (admin): ${error.message}`);
