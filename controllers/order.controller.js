@@ -236,9 +236,8 @@ exports.getOrder = async (req, res) => {
     if (userID) {
       filter.userID = userID;
     } else if (userName || userPhone) {
-      filter.$or = [];
-      if (userName) filter.$or.push({ userName: userName });
-      if (userPhone) filter.$or.push({ userPhone: userPhone });
+      if (userPhone) filter.userPhone = userPhone;
+      else filter.userName = userName;
     } else {
       return res.status(400).send({
         message: "No orders yet",
@@ -252,8 +251,8 @@ exports.getOrder = async (req, res) => {
       return res.status(404).send({ message: "No orders yet" });
     }
     logger.info(
-      `${user.name || userName} (${
-        userPhone || user.phone
+      `${user?.name || userName} (${
+        userPhone || user?.phone
       }) looking for orders.`
     );
     res.status(200).send(orders);

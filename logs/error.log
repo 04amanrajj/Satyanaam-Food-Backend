@@ -14,3 +14,5 @@
 [2024-12-22 01:11:42] ERROR: Error processing order: Cannot read properties of undefined (reading 'restaurantDetails')
 [2024-12-22 01:11:55] ERROR: Error processing order: Cannot read properties of undefined (reading 'restaurantDetails')
 [2024-12-22 01:12:53] ERROR: Error processing order: Cannot read properties of undefined (reading 'restaurantDetails')
+[2024-12-23 00:55:49] ERROR: Error showing orders: Cannot read properties of null (reading 'name')
+[2024-12-23 01:13:16] ERROR: Error showing orders: filter.push is not a function
