@@ -16,3 +16,26 @@
 [2024-12-22 01:12:53] ERROR: Error processing order: Cannot read properties of undefined (reading 'restaurantDetails')
 [2024-12-23 00:55:49] ERROR: Error showing orders: Cannot read properties of null (reading 'name')
 [2024-12-23 01:13:16] ERROR: Error showing orders: filter.push is not a function
+[2024-12-26 23:28:54] ERROR: Error showing menu: Invalid argument type
+[2024-12-26 23:34:41] ERROR: Error showing menu: Cannot access 'menuitems' before initialization
+[2024-12-26 23:35:05] ERROR: Error showing menu: Cannot access 'totalPages' before initialization
+[2024-12-26 23:36:57] ERROR: Error showing menu: Cannot access 'totalPages' before initialization
+[2024-12-26 23:39:16] ERROR: Error showing menu: Cannot set headers after they are sent to the client
+[2024-12-26 23:43:38] ERROR: Error showing menu: id is not defined
+[2024-12-26 23:57:35] ERROR: Server Error: client is not defined
+[2024-12-26 23:57:40] ERROR: Server Error: client is not defined
+[2024-12-26 23:57:45] ERROR: Server Error: client is not defined
+[2024-12-26 23:57:56] ERROR: Server Error: client is not defined
+[2024-12-26 23:58:00] ERROR: Server Error: client is not defined
+[2024-12-26 23:58:07] ERROR: Server Error: client is not defined
+[2024-12-26 23:58:11] ERROR: Server Error: client is not defined
+[2024-12-26 23:58:14] ERROR: Server Error: client is not defined
+[2024-12-26 23:58:43] ERROR: Server Error: client is not defined
+[2024-12-26 23:59:11] ERROR: Server Error: client is not defined
+[2024-12-26 23:59:34] ERROR: Server Error: client is not defined
+[2024-12-26 23:59:35] ERROR: Server Error: client is not defined
+[2024-12-27 00:16:29] ERROR: Server Error: Cannot read properties of undefined (reading 'connect')
+[2024-12-27 00:16:42] ERROR: Server Error: Cannot read properties of undefined (reading 'connect')
+[2024-12-27 00:19:44] ERROR: Server Error: The "listener" argument must be of type function. Received undefined
+[2024-12-27 00:19:50] ERROR: Server Error: The "listener" argument must be of type function. Received undefined
+[2024-12-27 00:19:52] ERROR: Server Error: err is not defined
