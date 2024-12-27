@@ -39,3 +39,17 @@
 [2024-12-27 00:19:44] ERROR: Server Error: The "listener" argument must be of type function. Received undefined
 [2024-12-27 00:19:50] ERROR: Server Error: The "listener" argument must be of type function. Received undefined
 [2024-12-27 00:19:52] ERROR: Server Error: err is not defined
+[2024-12-27 13:22:52] ERROR: Server Error: The "listener" argument must be of type function. Received undefined
+[2024-12-27 13:23:03] ERROR: Server Error: err is not defined
+[2024-12-27 13:23:30] ERROR: Server Error: Cannot read properties of undefined (reading 'log')
+[2024-12-27 13:25:45] ERROR: Server Error: This is a simulated Redis connection error
+[2024-12-27 13:27:02] ERROR: Server Error: Unhandled error. ([Function (anonymous)])
+[2024-12-27 13:27:06] ERROR: Server Error: Unhandled error. ([Function (anonymous)])
+[2024-12-27 13:27:46] ERROR: Server Error: WRONGPASS invalid username-password pair
+[2024-12-27 13:28:13] ERROR: Server Error: WRONGPASS invalid username-password pair
+[2024-12-27 13:28:14] ERROR: Error showing menu: client is not defined
+[2024-12-27 13:28:33] ERROR: Server Error: WRONGPASS invalid username-password pair
+[2024-12-27 14:05:44] ERROR: Error showing orders (admin): "[object Object]" is not valid JSON
+[2024-12-27 14:09:51] ERROR: Error showing orders (admin): Cannot set headers after they are sent to the client
+[2024-12-27 14:27:35] ERROR: Error login user: data and hash arguments required
+[2024-12-27 14:43:07] ERROR: Error showing orders: client is not defined
