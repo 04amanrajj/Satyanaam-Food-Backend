@@ -12,6 +12,7 @@ const { adminRoute } = require("./routes/admin.routes");
 const { logger } = require("./middlewares/userLogger.middleware");
 const { limiter } = require("./middlewares/rateLimit.middleware");
 const cors = require("cors");
+const { client } = require("./configs/redis");
 const port = process.env.PORT || 4500;
 require("dotenv").config();
 
@@ -42,10 +43,15 @@ app.use("/admin", adminRoute);
 app.listen(port, async () => {
   try {
     await dbconnection;
+    client.on("error", (err) => {
+      new Error("Redis Client Error:", err.message);
+    });
+    await client.connect();
     console.log("connected to DB");
+    console.log("connected to Redis");
   } catch (error) {
     logger.error(`Server Error: ${error.message}`);
-    console.log("failed to connect DB:", error.message);
+    console.log("failed to connect:", error.message);
   }
   console.log(`server running at http://localhost:${port}`);
 });

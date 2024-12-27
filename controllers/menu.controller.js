@@ -1,13 +1,7 @@
+const { client } = require("../configs/redis");
 const { logger } = require("../middlewares/userLogger.middleware");
 const { MenuModel } = require("../models/menu.model");
 const { UserModel } = require("../models/user.model");
-const redis = require("redis");
-const client = redis.createClient();
-
-client.on("err", (error) => {
-  console.log(error);
-});
-client.connect(process.env.REDIS_URI);
 
 exports.getMenuItem = async (req, res) => {
   try {
@@ -43,7 +37,7 @@ exports.getMenuItem = async (req, res) => {
       filter.rating = { $gte: rating };
     }
     // check data on redis
-    let cached_data = await client.get(JSON.stringify(filter));
+    const cached_data = await client.get(`menuitems:${JSON.stringify(filter)}`);
 
     if (cached_data) {
       logger.info("Data found on Redis");
@@ -66,7 +60,7 @@ exports.getMenuItem = async (req, res) => {
     logger.info(`${user.name || "Some one"} visited menu.`);
     // set data on redis
     await client.set(
-      JSON.stringify(filter),
+      `menuitems:${JSON.stringify(filter)}`,
       JSON.stringify({
         data: menuitems,
         metadata: {
@@ -75,10 +69,9 @@ exports.getMenuItem = async (req, res) => {
           totalitems,
           itemsPerPage: limit,
         },
-      })
+      }),
+      { EX: 600 } //will expire after 10min
     );
-
-    await client.expire(JSON.stringify(filter), 600); //will expire after 10sec
 
     res.status(200).send({
       data: menuitems,

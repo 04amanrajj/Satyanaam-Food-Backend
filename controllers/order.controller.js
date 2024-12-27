@@ -1,3 +1,4 @@
+const { client } = require("../configs/redis");
 const { logger } = require("../middlewares/userLogger.middleware");
 const { OrderModel } = require("../models/order.model");
 const { UserModel } = require("../models/user.model");
@@ -246,6 +247,16 @@ exports.getOrder = async (req, res) => {
 
     if (status) filter.status = status;
 
+    // check on redis
+    const cached_data = await client.get(
+      `user-orders:${JSON.stringify(filter)}`
+    );
+    if (cached_data) {
+      logger.info("user-orders data found on Redis");
+      res.status(200).send(JSON.parse(cached_data));
+      return;
+    }
+
     const orders = await OrderModel.find(filter);
     if (orders.length === 0) {
       return res.status(404).send({ message: "No orders yet" });
@@ -255,6 +266,15 @@ exports.getOrder = async (req, res) => {
         userPhone || user?.phone
       }) looking for orders.`
     );
+
+    await client.set(
+      `user-orders:${JSON.stringify(filter)}`,
+      JSON.stringify(orders),
+      {
+        EX: 600, //will expire after 1min
+      }
+    );
+    
     res.status(200).send(orders);
   } catch (error) {
     logger.error(`Error showing orders: ${error.message}`);

@@ -3,6 +3,7 @@ const { BlackListToken } = require("../models/blacklistTokens.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { logger } = require("../middlewares/userLogger.middleware");
+const { client } = require("../configs/redis");
 
 exports.userInfo = async (req, res) => {
   try {
@@ -57,7 +58,14 @@ exports.loginUser = async (req, res) => {
     else if (payLoad.phone) query.phone = payLoad.phone;
 
     // check for existing user
+    const cached_data = await client.get(payLoad.email);
+    if (cached_data) {
+      res.status(200).send(JSON.parse(cached_data));
+      return;
+    }
+
     const user = await UserModel.findOne(query).lean();
+
     if (!user)
       return res
         .status(404)
@@ -76,6 +84,17 @@ exports.loginUser = async (req, res) => {
     );
     delete user.password;
     logger.info(`${user.name || user.email || payLoad.email} logged in.`);
+
+    await client.set(
+      payLoad.email,
+      JSON.stringify({
+        message: "User logged-in",
+        token,
+        user,
+      }),
+      { EX: 600 } // Set expiration to 600 seconds (10 minutes)
+    );
+
     res.status(200).send({ message: "User logged-in", token, user });
   } catch (error) {
     logger.error(`Error login user: ${error.message}`);

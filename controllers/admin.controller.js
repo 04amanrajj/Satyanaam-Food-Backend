@@ -8,6 +8,7 @@ const { logger } = require("../middlewares/userLogger.middleware");
 const { MenuModel } = require("../models/menu.model");
 const { OrderModel } = require("../models/order.model");
 const { UserModel } = require("../models/user.model");
+const { client } = require("../configs/redis");
 
 // reset menu
 exports.resetMenu = async (req, res) => {
@@ -132,11 +133,25 @@ exports.getOrders = async (req, res) => {
 
     const { status } = req.query;
     let filter = {};
+    // filter.role = "admin";
     if (status) filter.status = status;
+
+    // check on redis
+    const cached_data = await client.get(`admin-orders:${JSON.stringify(filter)}`);
+    if (cached_data) {
+      logger.info("Orders data found on Redis");
+      res.status(200).send(JSON.parse(cached_data));
+      return;
+    }
 
     const order = await OrderModel.find(filter);
     if (order.length == 0)
       return res.status(404).send({ message: "No orders found" });
+
+    await client.set(`admin-orders:${JSON.stringify(filter)}`, JSON.stringify(order), {
+      EX: 600, //will expire after 1min
+    });
+
     logger.warn(`${req.role} looked for all orders`);
     res.status(200).send(order);
   } catch (error) {
