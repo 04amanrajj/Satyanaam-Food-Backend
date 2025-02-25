@@ -53,3 +53,117 @@
 [2024-12-27 14:09:51] ERROR: Error showing orders (admin): Cannot set headers after they are sent to the client
 [2024-12-27 14:27:35] ERROR: Error login user: data and hash arguments required
 [2024-12-27 14:43:07] ERROR: Error showing orders: client is not defined
+[2025-02-25 12:54:06] ERROR: Server Error: aclient is not defined
+[2025-02-25 12:55:46] ERROR: Server Error: logg is not defined
+[2025-02-25 12:55:51] ERROR: Redis Client Error:
+[2025-02-25 12:55:51] ERROR: Redis Client Error:
+[2025-02-25 12:55:51] ERROR: Redis Client Error:
+[2025-02-25 12:55:51] ERROR: Redis Client Error:
+[2025-02-25 12:55:51] ERROR: Redis Client Error:
+[2025-02-25 12:55:51] ERROR: Redis Client Error:
+[2025-02-25 12:55:53] ERROR: Redis Client Error:
+[2025-02-25 12:55:53] ERROR: Redis Client Error:
+[2025-02-25 12:55:53] ERROR: Redis Client Error:
+[2025-02-25 12:55:53] ERROR: Redis Client Error:
+[2025-02-25 12:55:54] ERROR: Redis Client Error:
+[2025-02-25 12:55:54] ERROR: Redis Client Error:
+[2025-02-25 12:55:54] ERROR: Redis Client Error:
+[2025-02-25 12:55:54] ERROR: Redis Client Error:
+[2025-02-25 12:55:55] ERROR: Redis Client Error:
+[2025-02-25 12:55:55] ERROR: Redis Client Error:
+[2025-02-25 12:55:56] ERROR: Redis Client Error:
+[2025-02-25 12:55:56] ERROR: Redis Client Error:
+[2025-02-25 12:55:57] ERROR: Redis Client Error:
+[2025-02-25 12:55:57] ERROR: Redis Client Error:
+[2025-02-25 12:55:58] ERROR: Redis Client Error:
+[2025-02-25 12:55:58] ERROR: Redis Client Error:
+[2025-02-25 12:55:59] ERROR: Redis Client Error:
+[2025-02-25 12:55:59] ERROR: Redis Client Error:
+[2025-02-25 12:56:00] ERROR: Redis Client Error:
+[2025-02-25 12:56:00] ERROR: Redis Client Error:
+[2025-02-25 12:56:01] ERROR: Redis Client Error:
+[2025-02-25 12:56:01] ERROR: Redis Client Error:
+[2025-02-25 12:56:02] ERROR: Redis Client Error:
+[2025-02-25 12:56:02] ERROR: Redis Client Error:
+[2025-02-25 12:56:03] ERROR: Redis Client Error:
+[2025-02-25 12:56:04] ERROR: Redis Client Error:
+[2025-02-25 12:56:04] ERROR: Redis Client Error:
+[2025-02-25 12:56:05] ERROR: Redis Client Error:
+[2025-02-25 12:56:05] ERROR: Redis Client Error:
+[2025-02-25 12:56:06] ERROR: Redis Client Error:
+[2025-02-25 12:56:06] ERROR: Redis Client Error:
+[2025-02-25 12:56:07] ERROR: Redis Client Error:
+[2025-02-25 12:56:07] ERROR: Redis Client Error:
+[2025-02-25 12:56:08] ERROR: Redis Client Error:
+[2025-02-25 12:56:08] ERROR: Redis Client Error:
+[2025-02-25 12:56:11] ERROR: Redis Client Error:
+[2025-02-25 12:56:11] ERROR: Redis Client Error:
+[2025-02-25 12:56:11] ERROR: Redis Client Error:
+[2025-02-25 12:56:11] ERROR: Redis Client Error:
+[2025-02-25 12:56:18] ERROR: Redis Client Error:
+[2025-02-25 12:56:18] ERROR: Redis Client Error:
+[2025-02-25 12:56:18] ERROR: Redis Client Error:
+[2025-02-25 12:56:18] ERROR: Redis Client Error:
+[2025-02-25 12:56:18] ERROR: Redis Client Error:
+[2025-02-25 12:56:19] ERROR: Redis Client Error:
+[2025-02-25 12:56:19] ERROR: Redis Client Error:
+[2025-02-25 12:56:19] ERROR: Redis Client Error:
+[2025-02-25 12:56:20] ERROR: Redis Client Error:
+[2025-02-25 12:56:20] ERROR: Redis Client Error:
+[2025-02-25 12:56:20] ERROR: Redis Client Error:
+[2025-02-25 12:56:21] ERROR: Redis Client Error:
+[2025-02-25 12:56:21] ERROR: Redis Client Error:
+[2025-02-25 12:56:23] ERROR: Redis Client Error:
+[2025-02-25 12:56:23] ERROR: Redis Client Error:
+[2025-02-25 12:56:23] ERROR: Redis Client Error:
+[2025-02-25 12:56:23] ERROR: Redis Client Error:
+[2025-02-25 12:56:24] ERROR: Redis Client Error:
+[2025-02-25 12:56:24] ERROR: Redis Client Error:
+[2025-02-25 12:56:24] ERROR: Redis Client Error:
+[2025-02-25 12:56:24] ERROR: Redis Client Error:
+[2025-02-25 12:56:25] ERROR: Redis Client Error:
+[2025-02-25 12:56:25] ERROR: Redis Client Error:
+[2025-02-25 12:56:26] ERROR: Redis Client Error:
+[2025-02-25 12:56:26] ERROR: Redis Client Error:
+[2025-02-25 12:56:27] ERROR: Redis Client Error:
+[2025-02-25 12:56:27] ERROR: Redis Client Error:
+[2025-02-25 12:56:28] ERROR: Redis Client Error:
+[2025-02-25 12:56:28] ERROR: Redis Client Error:
+[2025-02-25 12:56:30] ERROR: Redis Client Error:
+[2025-02-25 12:56:30] ERROR: Redis Client Error:
+[2025-02-25 12:56:31] ERROR: Redis Client Error:
+[2025-02-25 12:56:31] ERROR: Redis Client Error:
+[2025-02-25 12:56:33] ERROR: Redis Client Error:
+[2025-02-25 12:56:33] ERROR: Redis Client Error:
+[2025-02-25 12:56:34] ERROR: Redis Client Error:
+[2025-02-25 12:56:34] ERROR: Redis Client Error:
+[2025-02-25 12:56:35] ERROR: Redis Client Error:
+[2025-02-25 12:56:35] ERROR: Redis Client Error:
+[2025-02-25 12:56:36] ERROR: Redis Client Error:
+[2025-02-25 12:56:36] ERROR: Redis Client Error:
+[2025-02-25 12:56:41] ERROR: Redis Client Error:
+[2025-02-25 12:56:41] ERROR: Redis Client Error:
+[2025-02-25 12:56:41] ERROR: Redis Client Error:
+[2025-02-25 12:56:42] ERROR: Redis Client Error:
+[2025-02-25 12:56:42] ERROR: Redis Client Error:
+[2025-02-25 12:56:42] ERROR: Redis Client Error:
+[2025-02-25 12:56:42] ERROR: Redis Client Error:
+[2025-02-25 12:56:42] ERROR: Redis Client Error:
+[2025-02-25 12:56:43] ERROR: Redis Client Error:
+[2025-02-25 12:56:43] ERROR: Redis Client Error:
+[2025-02-25 12:56:44] ERROR: Redis Client Error:
+[2025-02-25 12:56:46] ERROR: Server Error: thrlogger is not defined
+[2025-02-25 12:56:48] ERROR: Server Error: errlogger is not defined
+[2025-02-25 12:56:52] ERROR: Redis Client Error:
+[2025-02-25 12:56:52] ERROR: Redis Client Error:
+[2025-02-25 12:56:52] ERROR: Redis Client Error:
+[2025-02-25 12:56:52] ERROR: Redis Client Error:
+[2025-02-25 12:56:52] ERROR: Redis Client Error:
+[2025-02-25 12:56:52] ERROR: Redis Client Error:
+[2025-02-25 12:56:53] ERROR: Redis Client Error:
+[2025-02-25 12:56:54] ERROR: Server Error: 
+[2025-02-25 12:57:06] ERROR: Server Error: Redis Client Error:
+[2025-02-25 12:57:07] ERROR: Server Error: Redis Client Error:
+[2025-02-25 12:57:13] ERROR: Server Error: Redis Client Error:
+[2025-02-25 12:57:35] ERROR: Server Error: Redis Client Error:
+[2025-02-25 12:57:40] ERROR: Server Error: Redis Client Error:
