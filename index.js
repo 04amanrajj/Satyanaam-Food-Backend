@@ -44,7 +44,7 @@ app.listen(port, async () => {
   try {
     await dbconnection;
     client.on("error", (err) => {
-      new Error("Redis Client Error:", err.message);
+      throw new Error("Redis Client Error:", err.message);
     });
     await client.connect();
     console.log("connected to DB");
