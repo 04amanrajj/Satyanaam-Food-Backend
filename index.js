@@ -43,15 +43,35 @@ app.use("/admin", adminRoute);
 app.listen(port, "0.0.0.0", async () => {
   try {
     await dbconnection;
-    client.on("error", (err) => {
-      throw new Error("Redis Client Error:", err.message);
-    });
     await client.connect();
-    console.log("connected to DB");
-    console.log("connected to Redis");
+
+    console.log("Connected to DB");
+    console.log("Connected to Redis");
+
+    // Handle Redis errors and try reconnecting
+    client.on("error", async (err) => {
+      console.error(`Redis Client Error: ${err.message}`);
+      try {
+        await client.connect();
+        console.log("Reconnected to Redis");
+      } catch (reconnectError) {
+        console.error(`Redis Reconnection Failed: ${reconnectError.message}`);
+      }
+    });
+
+    // Handle Redis disconnection
+    client.on("end", async () => {
+      console.warn("Redis Disconnected! Trying to reconnect...");
+      try {
+        await client.connect();
+        console.log("Reconnected to Redis");
+      } catch (reconnectError) {
+        console.error(`Redis Reconnection Failed: ${reconnectError.message}`);
+      }
+    });
   } catch (error) {
     logger.error(`Server Error: ${error.message}`);
-    console.log("failed to connect:", error.message);
+    console.error(`Failed to connect: ${error.message}`);
   }
-  console.log(`server running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
