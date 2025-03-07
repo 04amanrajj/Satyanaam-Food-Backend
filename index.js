@@ -40,7 +40,7 @@ app.use("/order", orderRoute);
 app.use("/admin", adminRoute);
 
 // server initialization
-app.listen(port, async () => {
+app.listen(port, "0.0.0.0", async () => {
   try {
     await dbconnection;
     client.on("error", (err) => {
